@@ -1125,8 +1125,12 @@ h1 {
     gap: 16px;
   }
 
+  .article {
+    order: 2;
+  }
+
   .infobox {
-    order: -1;
+    order: 1;
   }
 
   .dossier-image,

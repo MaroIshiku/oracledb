@@ -33,7 +33,7 @@ const categories = {
 };
 
 let routeById = new Map();
-const assetVersion = "20260702-3";
+const assetVersion = "20260702-4";
 
 const escapeHtml = (value = "") =>
   value
