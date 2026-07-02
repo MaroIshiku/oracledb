@@ -210,7 +210,7 @@ function parseSections(rawBody, kind) {
   for (const line of lines) {
     if (line.startsWith("// INHALT") || /^\d+\s*[—-]/.test(line)) continue;
     if (/^Dieser Artikel ist Teil der internen ORACLE-Datenbank/i.test(line)) continue;
-    const isCommentHeading = /^\/\/\s*(Auszug|Ereignis-Update)/i.test(line);
+    const isCommentHeading = /^\/\/\s*(Auszug|Ereignis-Update|Medizinischer Zusatz|Feldvermerk|Feldwarnung|Direktion)/i.test(line);
     const normalized = line.replace(/^\/\/\s*/, "").trim();
     const normalizedKey = headingKey(normalized);
     const headingLikeLength = normalized.length <= 90;
@@ -345,6 +345,7 @@ function head(title) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(title)}</title>
+  <link rel="icon" type="image/png" href="/assets/img/oracle-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -354,7 +355,10 @@ function head(title) {
 
 function topbar(meta = "Meridian-Knoten // Aktenindex // statische Routen aktiv") {
   return `<header class="topbar">
-      <a class="system-title" href="/">Oracle<span>.DB</span></a>
+      <a class="system-brand" href="/index/" aria-label="Oracle.DB Index">
+        <img src="/assets/img/oracle-logo.png" alt="">
+        <span class="system-title">Oracle<span>.DB</span></span>
+      </a>
       <div class="topmeta">${escapeHtml(meta)}</div>
       <div class="user-chip"><span class="pulse"></span> EVOSS // Direktorin</div>
     </header>`;
@@ -426,14 +430,18 @@ function ticker() {
 
 function renderArticlePage(article, allArticles, chronicle) {
   return `${head(`Oracle.DB // ${article.id}`)}
-<body class="locked">
-  ${loginMarkup()}
+<body>
   <main class="app glitch">
     ${topbar(`Meridian-Knoten // ${categories[article.kind].title} // ${article.id}`)}
     <section class="main">
       ${sidebar(allArticles, article)}
-      <section class="viewer">
-        <article class="dossier">
+      <section class="viewer loading-dossier">
+        <div class="route-loader" data-route-loader>
+          <div class="loader-label">Akte wird entschluesselt</div>
+          <div class="loader-bar"><span></span></div>
+          <div class="loader-code">${escapeHtml(article.id)} // BUFFER</div>
+        </div>
+        <article class="dossier" data-dossier>
           <div class="classification">
             <span>Nur interner Gebrauch // Weitergabe untersagt</span>
             <span>Freigabe: ${escapeHtml(categories[article.kind].clearance)}</span>
@@ -467,7 +475,7 @@ function renderArticlePage(article, allArticles, chronicle) {
     </section>
     ${ticker()}
   </main>
-  <script src="/assets/js/login.js"></script>
+  <script src="/assets/js/page-load.js"></script>
   <script src="/assets/js/search.js"></script>
   <script src="/assets/js/redactions.js"></script>
 </body>
@@ -477,8 +485,7 @@ function renderArticlePage(article, allArticles, chronicle) {
 function renderIndex(allArticles, chronicle) {
   const counts = Object.fromEntries(Object.keys(categories).map((kind) => [kind, allArticles.filter((article) => article.kind === kind).length]));
   return `${head("Oracle.DB // Aktenindex")}
-<body class="locked">
-  ${loginMarkup()}
+<body>
   <main class="app glitch">
     ${topbar("Meridian-Knoten // Aktenindex // statische Routen aktiv")}
     <section class="main">
@@ -500,7 +507,6 @@ function renderIndex(allArticles, chronicle) {
     </section>
     ${ticker()}
   </main>
-  <script src="/assets/js/login.js"></script>
   <script src="/assets/js/search.js"></script>
   <script src="/assets/js/redactions.js"></script>
 </body>
@@ -511,8 +517,7 @@ function renderCategoryPage(kind, allArticles, chronicle) {
   const category = categories[kind];
   const articles = allArticles.filter((article) => article.kind === kind).sort((a, b) => a.id.localeCompare(b.id, "de"));
   return `${head(`Oracle.DB // ${category.title}`)}
-<body class="locked">
-  ${loginMarkup()}
+<body>
   <main class="app glitch">
     ${topbar(`Meridian-Knoten // ${category.title} // ${articles.length} Akten`)}
     <section class="main">
@@ -534,9 +539,17 @@ function renderCategoryPage(kind, allArticles, chronicle) {
     </section>
     ${ticker()}
   </main>
-  <script src="/assets/js/login.js"></script>
   <script src="/assets/js/search.js"></script>
   <script src="/assets/js/redactions.js"></script>
+</body>
+</html>`;
+}
+
+function renderLoginPage() {
+  return `${head("Oracle.DB // Anmeldung")}
+<body class="login-page">
+  ${loginMarkup()}
+  <script src="/assets/js/login.js"></script>
 </body>
 </html>`;
 }
@@ -607,7 +620,8 @@ async function main() {
   const chronicle = await readChronicleSummary();
   await removeGeneratedRoutes();
 
-  await writeFile(path.join(root, "index.html"), renderIndex(articles, chronicle));
+  await writeFile(path.join(root, "index.html"), renderLoginPage());
+  await writeFile(path.join(root, "index", "index.html"), renderIndex(articles, chronicle));
   for (const kind of Object.keys(categories)) {
     await writeFile(path.join(root, categories[kind].route, "index.html"), renderCategoryPage(kind, articles, chronicle));
   }

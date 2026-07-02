@@ -21,6 +21,10 @@ function storeLoginDate() {
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+function goToIndex() {
+  window.location.replace("/index/");
+}
+
 async function typeInto(node, value, delay) {
   if (!node) return;
   node.classList.add("active");
@@ -61,12 +65,9 @@ async function bootOracleLogin() {
   if (!login || !userNode || !passNode || !statusNode) return;
 
   if (getStoredLoginDate() === todayKey) {
-    document.body.classList.remove("locked");
-    login.classList.add("done");
+    goToIndex();
     return;
   }
-
-  document.body.classList.add("locked");
 
   await wait(420);
   await typeInto(userNode, user, 105);
@@ -78,8 +79,9 @@ async function bootOracleLogin() {
   statusNode.textContent = "Zugriff bestaetigt";
   await wait(440);
   storeLoginDate();
-  document.body.classList.remove("locked");
   login.classList.add("done");
+  await wait(260);
+  goToIndex();
 }
 
 bootOracleLogin();

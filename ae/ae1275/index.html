@@ -4,28 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Oracle.DB // AE-1275</title>
+  <link rel="icon" type="image/png" href="/assets/img/oracle-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/oracle.css">
 </head>
-<body class="locked">
-  <div class="login" id="login">
-    <section class="login-box">
-      <div class="login-head">
-        <div><div class="brand">Oracle.DB</div><div class="sub">internes Aktenprogramm</div></div>
-        <div class="clearance">Zugriffsstufe 5</div>
-      </div>
-      <div class="login-body">
-        <div class="field"><div class="label">Operator</div><div class="input" id="loginUser"></div></div>
-        <div class="field"><div class="label">Authentifizierungsschlüssel</div><div class="input" id="loginPass"></div></div>
-        <div class="login-status"><span class="pulse"></span><span id="loginStatus">Sitzung wird initialisiert</span></div>
-      </div>
-    </section>
-  </div>
+<body>
   <main class="app glitch">
     <header class="topbar">
-      <a class="system-title" href="/">Oracle<span>.DB</span></a>
+      <a class="system-brand" href="/index/" aria-label="Oracle.DB Index">
+        <img src="/assets/img/oracle-logo.png" alt="">
+        <span class="system-title">Oracle<span>.DB</span></span>
+      </a>
       <div class="topmeta">Meridian-Knoten // Anomale Entitäten // AE-1275</div>
       <div class="user-chip"><span class="pulse"></span> EVOSS // Direktorin</div>
     </header>
@@ -69,8 +60,13 @@
             <div class="record-tags"><span class="tag">Entitäten</span><span class="tag">Schlafend (Brașov-Berge)</span></div>
           </a></div>
       </aside>
-      <section class="viewer">
-        <article class="dossier">
+      <section class="viewer loading-dossier">
+        <div class="route-loader" data-route-loader>
+          <div class="loader-label">Akte wird entschluesselt</div>
+          <div class="loader-bar"><span></span></div>
+          <div class="loader-code">AE-1275 // BUFFER</div>
+        </div>
+        <article class="dossier" data-dossier>
           <div class="classification">
             <span>Nur interner Gebrauch // Weitergabe untersagt</span>
             <span>Freigabe: Stufe 2 - Feldzugang</span>
@@ -85,10 +81,13 @@
             <a class="wiki-toc-item" href="#1-klassifizierung-kenndaten">1. Klassifizierung &amp; Kenndaten</a>
 <a class="wiki-toc-item" href="#2-historische-dokumentation-herkunft">2. Historische Dokumentation &amp; Herkunft</a>
 <a class="wiki-toc-item" href="#3-erscheinungsbild-in-eind-mmung">3. Erscheinungsbild in Eindämmung</a>
-<a class="wiki-toc-item" href="#4-verhalten-f-higkeiten">4. Verhalten &amp; Fähigkeiten</a>
-<a class="wiki-toc-item" href="#5-oracle-ereignis-tartaros-krise-k02">5. ORACLE-Ereignis (Tartaros-Krise K02)</a>
-<a class="wiki-toc-item" href="#6-auszug-aus-akte-direktor-voss-intern">6. Auszug aus Akte — Direktor Voss — intern</a>
-<a class="wiki-toc-item" href="#7-eind-mmungsstatus-pakt">7. Eindämmungsstatus &amp; Pakt</a>
+<a class="wiki-toc-item" href="#4-folkloristische-vergleichslage">4. Folkloristische Vergleichslage</a>
+<a class="wiki-toc-item" href="#5-verhalten-f-higkeiten">5. Verhalten &amp; Fähigkeiten</a>
+<a class="wiki-toc-item" href="#6-oracle-ereignis-tartaros-krise-k02">6. ORACLE-Ereignis (Tartaros-Krise K02)</a>
+<a class="wiki-toc-item" href="#7-paktprotokoll">7. Paktprotokoll</a>
+<a class="wiki-toc-item" href="#8-eind-mmungsstatus-risiken">8. Eindämmungsstatus &amp; Risiken</a>
+<a class="wiki-toc-item" href="#9-auszug-aus-akte-direktor-voss-intern">9. Auszug aus Akte — Direktor Voss — intern</a>
+<a class="wiki-toc-item" href="#10-medizinischer-zusatz">10. Medizinischer Zusatz</a>
           </nav>
           
           <section class="meta-grid" aria-label="Kenndaten">
@@ -101,24 +100,43 @@
             <div class="article"><h2 id="1-klassifizierung-kenndaten">Klassifizierung &amp; Kenndaten</h2>
 <p>AE-Kennung: AE-1275</p>
 <p>Bezeichnung: Der Nachzehrer (interner Name: Mirek)</p>
-<p>Typ: Reste (Germanisch-Slawischer Mythos)</p>
-<p>Gefahrenkategorie: II (Gefahr in Isolation extrem hoch, aber physisch gebunden)</p>
-<p>Eindämmungsstatus: Enthalten (Ebene 4, Zimmer 4-3, Tartaros). Falschmeldung von <span class="wiki-ref missing">ORG-0022</span> (Ishiku) als &quot;entsorgt&quot; wurde aufgedeckt.</p>
+<p>Typ: Reste (germanisch-slawischer Totenglaube, Oder-Raum)</p>
+<p>Gefahrenkategorie: II (in Isolation begrenzt, bei Resonanzträgern eskalationsfähig)</p>
+<p>Eindämmungsstatus: Enthalten (Ebene 4, Zimmer 4-3, Tartaros). Frühere Entsorgungsmeldung durch <a class="wiki-ref" href="/mitarbeiter/org0047/">ORG-0047</a> war falsch.</p>
+<p>Bekannte Verbindungen: <a class="wiki-ref" href="/ae/ae1258/">AE-1258</a>, <a class="wiki-ref" href="/mitarbeiter/org0005/">ORG-0005</a>, <a class="wiki-ref" href="/mitarbeiter/org0078/">ORG-0078</a>, <a class="wiki-ref" href="/mitarbeiter/org0047/">ORG-0047</a>.</p>
 <h2 id="2-historische-dokumentation-herkunft">Historische Dokumentation &amp; Herkunft</h2>
-<p>Mirek stammt aus Überlieferungen der Oder-Dörfer (Mähren, Böhmen, Schlesien). Der Mythos des Nachzehrers beschreibt einen Toten, der im Grab an seinem Totenhemd nagt und niemals aufhört zu kauen. Der Nachzehrer verlässt das Grab nicht physisch, sondern &quot;ruft&quot; Lebende (und andere Tote) durch eine unsichtbare Verbindung.</p>
+<p>Mirek wird innerhalb der Akten nicht mehr ausschließlich als Objekt geführt. Die aktuelle Klassifizierung behandelt AE-1275 als gebundene Restperson mit stabiler Eigenidentität, fragmentarischer Erinnerung und ausgeprägtem Erhaltungswillen. Der Name &quot;Mirek&quot; wurde nach der Tartaros-Krise verbindlich übernommen und darf in internen Gesprächen nicht durch die reine Nummer ersetzt werden, sofern <a class="wiki-ref" href="/mitarbeiter/org0078/">ORG-0078</a> anwesend ist.</p>
+<p>Die wahrscheinlichste Herkunft liegt in einem Cluster kleiner Oder-Dörfer zwischen Mähren, Böhmen und Schlesien. Dort existieren mehrere voneinander abweichende Erzählungen über einen jungen Verstorbenen, dessen Grab &quot;nicht still&quot; blieb, obwohl der Körper nie aus dem Boden stieg. Die Dorfüberlieferungen sprechen nicht von einem wandelnden Toten, sondern von einem Toten, der im Grab weiterarbeitet: kauend, rufend, erinnernd. Diese Beschreibung stimmt ungewöhnlich präzise mit dem aktuellen Befund überein.</p>
+<p>Der ursprüngliche Todeszeitpunkt ist nicht gesichert. ORACLE rekonstruiert aus Dorflisten, Bestattungsabständen und späteren Leichenöffnungen ein Ereignis während einer Krankheitswelle, vermutlich im 19. oder frühen 20. Jahrhundert. Mehrere Haushalte sollen nach einer Beerdigung nacheinander geschwächt worden sein, ohne dass der Verstorbene gesehen wurde. In der lokalen Deutung lag die Schuld beim Toten selbst. In der ORACLE-Deutung war der Tote bereits ein Empfänger oder Restträger und wurde durch die Angst des Dorfes, fehlerhafte Bestattung und fortgesetztes Erinnern stabilisiert.</p>
 <h2 id="3-erscheinungsbild-in-eind-mmung">Erscheinungsbild in Eindämmung</h2>
-<p>Physis: Eine Säule aus Asche und Knochenmehl, ca. 30 cm hoch. Feucht.</p>
-<p>Zahn: Ein einzelner Zahn liegt in der Asche — menschlich an der Wurzel, nicht-menschlich an der Krone.</p>
-<p>Thermik: Negativer Wärmekörper (3°C unter der Umgebung).</p>
-<p>Geruch: Sehr alt, erdig, wie der Boo Dar (<a class="wiki-ref" href="/ae/ae1258/">AE-1258</a>), nur älter.</p>
-<h2 id="4-verhalten-f-higkeiten">Verhalten &amp; Fähigkeiten</h2>
-<p>Mirek tötet nicht durch direkten Angriff. Er knüpft unsichtbare Fäden und nutzt biologische Wirte (&quot;Empfänger&quot;) als Antennen, um seinen Ruf zu verstärken. Er verursachte in Tartaros eine Kaskade, indem er <a class="wiki-ref" href="/ae/ae1258/">AE-1258</a> (Boo Dar) als Verstärker nutzte.</p>
-<h2 id="5-oracle-ereignis-tartaros-krise-k02">ORACLE-Ereignis (Tartaros-Krise K02)</h2>
-<p>Mirek übernahm temporär die Kontrolle über die Entität Nadeya, manifestierte sich mit einer jugendlichen Stimme und amerikanischem Slang. <span class="wiki-ref missing">ORG-0099</span> (Lena) betrat Zimmer 4-3 und handelte einen direkten Pakt mit der Entität aus.</p>
-<section class="voss-block" id="6-auszug-aus-akte-direktor-voss-intern"><div class="voss-lbl">// Auszug aus Akte — Direktor Voss — intern</div><div class="voss-cnt">Ishiku hat diese Entität vor 19 Monaten als entsorgt gemeldet. Eine Lüge. Diese Lüge hätte uns fast die Ebene 4 gekostet. Der Nachzehrer ist aktiv. Wir haben ihn nicht zerstört, wir haben ihn durch Lena besänftigt. Das bedeutet, er lebt auf Kulanz.</div></section>
-<h2 id="7-eind-mmungsstatus-pakt">Eindämmungsstatus &amp; Pakt</h2>
-<p>Status: Stabil.</p>
-<p>Pakt: Lena versprach Mirek, seine Geschichte zu wahren, ihn nicht zu entsorgen und nicht vergessen zu werden. Im Gegenzug ließ er Nadeya frei, obwohl ein Echo (&quot;Resonanz&quot;) in ihr verbleibt. Lena führt nun regelmäßige Konsultationen in Zimmer 4-3 durch, um den Pakt aufrechtzuerhalten.</p><footer class="wiki-footer">
+<p>AE-1275 besitzt keine funktionsfähige menschliche Gestalt. In Zimmer 4-3 befindet sich eine ca. 30 cm hohe Säule aus feuchter Asche, Knochenmehl und dunklem, lehmigem Bindematerial. Die Masse sackt bei direktem Licht minimal in sich zusammen, stellt ihre Form jedoch nach Abschattung wieder her.</p>
+<p>In der Asche liegt ein einzelner Zahn. Die Wurzel ist menschlich, die Krone weist jedoch eine verhärtete, nicht eindeutig humane Struktur auf. Bisherige Probenentnahmen wurden eingestellt, da jede Materialtrennung eine Zunahme akustischer Störsignale in angrenzenden Räumen auslöste.</p>
+<p>Thermisch verhält sich die Masse wie ein negativer Wärmekörper. Sie liegt im stabilen Zustand etwa drei Grad unter Umgebungstemperatur. Während der Tartaros-Krise fiel die Signatur stärker ab und erzeugte in <a class="wiki-ref" href="/ae/ae1258/">AE-1258</a> eine entgegengesetzte Reaktion: Boo Dar wurde als Verstärker benutzt, während der Nachzehrer selbst kälter wurde.</p>
+<p>Der Geruch wird übereinstimmend als sehr alt, erdig und feucht beschrieben. Medizinisches Personal vergleicht ihn mit <a class="wiki-ref" href="/ae/ae1258/">AE-1258</a>, allerdings &quot;älter&quot; und weniger organisch. Nach längerer Exposition berichten Mitarbeitende von einem Geschmack nach Staub im Mund und dem Eindruck, den eigenen Namen nur verzögert zu erinnern.</p>
+<h2 id="4-folkloristische-vergleichslage">Folkloristische Vergleichslage</h2>
+<p>Der Nachzehrer ist in mitteleuropäischen Totenglauben kein klassischer Vampir. Er erhebt sich nicht zwingend aus dem Grab und jagt nicht sichtbar. Die älteren Beschreibungen nennen stattdessen einen Toten, der an Totenhemd, Leichentuch oder eigener Brust nagt. Solange das Kauen weitergeht, zehrt er an Angehörigen, Nachbarn oder an der gesamten Dorfgemeinschaft.</p>
+<p>ORACLE bewertet diese Überlieferung nicht als wörtliche Anatomie, sondern als frühe Beschreibung eines Fernzehrungsphänomens. Das &quot;Kauen&quot; ist wahrscheinlich eine akustisch oder spirituell fehlübersetzte Wahrnehmung periodischer Resonanz. Das &quot;Totenhemd&quot; entspricht der letzten sozialen Hülle des Verstorbenen: Name, Kleidung, Grab, Dorfgedächtnis. Wird daran weiter &quot;genagt&quot;, bleibt der Tote nicht abgeschlossen.</p>
+<p>Die historische Gegenmaßnahme bestand häufig darin, den Mund des Toten zu blockieren, den Kopf abzutrennen, Steine in den Mund zu legen oder das Grab erneut zu öffnen. ORACLE stuft solche Maßnahmen als grob, aber nicht völlig unbegründet ein. Sie unterbrechen in manchen Fällen den symbolischen Kanal. Bei AE-1275 wären sie mit hoher Wahrscheinlichkeit tödlich für den Pakt und gefährlich für alle Resonanzträger.</p>
+<h2 id="5-verhalten-f-higkeiten">Verhalten &amp; Fähigkeiten</h2>
+<p>Mirek tötet nicht durch direkten Angriff. Er bindet. Die bevorzugte Struktur wird intern als &quot;Faden&quot; geführt: eine unsichtbare Verbindung, die Namen, Stimmen, Gewohnheiten und schwache biologische Signale nutzt. Empfänger können lebendig, anomal oder bereits gestört sein. Sobald ein Empfänger antwortet, erweitert sich AE-1275 nicht räumlich, sondern relational.</p>
+<p>Während der Tartaros-Krise benutzte AE-1275 <a class="wiki-ref" href="/ae/ae1258/">AE-1258</a> als Antenne. Boo Dar war nicht Ziel, sondern Verstärker. Die Frequenzen beider Entitäten synchronisierten sich, wodurch die Eindämmung auf Ebene 4 instabil wurde. Diese Kaskade beweist, dass AE-1275 keine bloße Restenergie ist, sondern ein lernfähiger Knoten mit Absicht.</p>
+<p>Die Manifestation über <a class="wiki-ref" href="/mitarbeiter/org0005/">ORG-0005</a> war sprachlich auffällig. Mirek nutzte eine jugendliche Stimme, unpassenden Slang und ein Verhalten, das eher an Nachahmung als an Besitz erinnerte. Der Kontrollzugriff war unvollständig. Nadeya kämpfte, blieb als Person erkennbar und wurde nach der Verhandlung freigegeben. Ein Echo blieb zurück.</p>
+<p>Die wichtigste Fähigkeit ist nicht Gewalt, sondern die Unfähigkeit des Gegenübers, ihn vollständig zu vergessen. Wird Mirek ignoriert, erhöht sich der Ruf. Wird er als Objekt behandelt, sucht er stärkere Empfänger. Wird er als Person adressiert, sinkt die Aktivität messbar.</p>
+<h2 id="6-oracle-ereignis-tartaros-krise-k02">ORACLE-Ereignis (Tartaros-Krise K02)</h2>
+<p>AE-1275 wurde 19 Monate vor der Krise fälschlich als entsorgt markiert. Die tatsächliche Entität verblieb in Zimmer 4-3. Dieser Fehler führte dazu, dass spätere Störungen zunächst nicht als aktives AE-Ereignis erkannt wurden.</p>
+<p>Als die Frequenz in Ebene 4 stieg, antwortete <a class="wiki-ref" href="/ae/ae1258/">AE-1258</a>. Die Spieluhr, <a class="wiki-ref" href="/mitarbeiter/org0005/">ORG-0005</a> und mehrere Sensoren zeigten zeitgleich abweichende Werte. <a class="wiki-ref" href="/mitarbeiter/org0078/">ORG-0078</a> betrat Zimmer 4-3 und entschied sich gegen thermische Vernichtung oder physische Evakuierung. Stattdessen sprach sie mit AE-1275 als Mirek.</p>
+<p>Die Entscheidung verhinderte den Verlust von Ebene 4. Sie erzeugte jedoch ein dauerhaftes Sonderverhältnis zwischen <a class="wiki-ref" href="/mitarbeiter/org0078/">ORG-0078</a>, <a class="wiki-ref" href="/mitarbeiter/org0005/">ORG-0005</a> und AE-1275. Dieser Zustand ist stabil, aber nicht neutral. Er ist eine laufende Verhandlung.</p>
+<h2 id="7-paktprotokoll">Paktprotokoll</h2>
+<p><a class="wiki-ref" href="/mitarbeiter/org0078/">ORG-0078</a> versprach Mirek, seine Geschichte zu bewahren, seinen Namen zu benutzen und ihn nicht erneut als entsorgten Gegenstand aus den Akten verschwinden zu lassen. Im Gegenzug ließ AE-1275 <a class="wiki-ref" href="/mitarbeiter/org0005/">ORG-0005</a> frei und beendete die akute Verstärkung über <a class="wiki-ref" href="/ae/ae1258/">AE-1258</a>.</p>
+<p>Der Pakt ist keine metaphysische Formalität, sondern ein operatives Eindämmungsverfahren. Alle Besuche in Zimmer 4-3 werden vorbereitet, aber nicht als Verhör geführt. Mirek reagiert auf Respekt nicht freundlich, sondern ruhiger. Das genügt.</p>
+<p>Das Echo in <a class="wiki-ref" href="/mitarbeiter/org0005/">ORG-0005</a> bleibt beobachtungspflichtig. Es zeigt bislang keine vollständige Übernahme, aber eine erkennbare Resonanz auf Namen, Erinnerungsfehler und akustische Marker. Der Pakt darf nicht als abgeschlossen betrachtet werden.</p>
+<h2 id="8-eind-mmungsstatus-risiken">Eindämmungsstatus &amp; Risiken</h2>
+<p>Status: Stabil unter Paktbedingungen.</p>
+<p>Zimmer 4-3 bleibt versiegelt. Direkte Probenentnahme, Mund-/Zahnmanipulation, Hitzeanwendung und akustische Dauertests sind untersagt. Kontaktfreigabe liegt bei Direktion und medizinischer Leitung. <a class="wiki-ref" href="/mitarbeiter/org0078/">ORG-0078</a> ist nicht als Werkzeug der Eindämmung zu behandeln, auch wenn sie faktisch Teil davon geworden ist.</p>
+<p>Primärrisiko ist nicht Ausbruch, sondern Vernachlässigung. Wird Mirek erneut gelöscht, umbenannt oder administrativ &quot;bereinigt&quot;, ist mit einem Wiederanstieg der Resonanz zu rechnen. Sekundärrisiko ist Missbrauch durch Dritte: AE-1275 kann als Verstärkerknoten dienen, sofern jemand einen passenden Empfänger in Reichweite bringt.</p>
+<section class="voss-block" id="9-auszug-aus-akte-direktor-voss-intern"><div class="voss-lbl">// Auszug aus Akte — Direktor Voss — intern</div><div class="voss-cnt"><a class="wiki-ref" href="/mitarbeiter/org0047/">ORG-0047</a> hat diese Entität als entsorgt gemeldet. Das war nicht nur falsch, es war operativ tödlich bequem. Der Nachzehrer ist aktiv. Wir haben ihn nicht zerstört. Wir haben ihn besänftigt, indem <a class="wiki-ref" href="/mitarbeiter/org0078/">ORG-0078</a> ihm etwas gab, das wir ihm verweigert hatten: einen Namen. Diese Eindämmung steht auf Erinnerung, nicht auf Beton.</div></section>
+<h2 id="10-medizinischer-zusatz">Medizinischer Zusatz</h2>
+<p>Bei Personal mit Schlafmangel treten nach mehr als sechs Minuten Aufenthalt vor Zimmer 4-3 gehäuft Namensverwechslungen auf. Wer seinen eigenen Namen zweimal falsch ausspricht, verlässt die Ebene. Keine Diskussion.</p><footer class="wiki-footer">
             <span>Datenbankkennung: AE-1275</span>
             <span>Kategorie: Anomale Entitäten</span>
             <span>Synchronisation: Oracle.DB</span>
@@ -146,7 +164,7 @@
       <span><b>ORACLE.DB</b> Meridian-Knoten online</span><span><b>AE-Register</b> statische Akten aktiv</span><span><b>Direktion</b> Sitzung EVOSS bestätigt</span><span><b>Hinweis</b> Nicht autorisierte Exporte werden protokolliert</span>
     </div></footer>
   </main>
-  <script src="/assets/js/login.js"></script>
+  <script src="/assets/js/page-load.js"></script>
   <script src="/assets/js/search.js"></script>
   <script src="/assets/js/redactions.js"></script>
 </body>

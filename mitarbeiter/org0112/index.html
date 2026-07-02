@@ -4,28 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Oracle.DB // ORG-0112</title>
+  <link rel="icon" type="image/png" href="/assets/img/oracle-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/oracle.css">
 </head>
-<body class="locked">
-  <div class="login" id="login">
-    <section class="login-box">
-      <div class="login-head">
-        <div><div class="brand">Oracle.DB</div><div class="sub">internes Aktenprogramm</div></div>
-        <div class="clearance">Zugriffsstufe 5</div>
-      </div>
-      <div class="login-body">
-        <div class="field"><div class="label">Operator</div><div class="input" id="loginUser"></div></div>
-        <div class="field"><div class="label">Authentifizierungsschlüssel</div><div class="input" id="loginPass"></div></div>
-        <div class="login-status"><span class="pulse"></span><span id="loginStatus">Sitzung wird initialisiert</span></div>
-      </div>
-    </section>
-  </div>
+<body>
   <main class="app glitch">
     <header class="topbar">
-      <a class="system-title" href="/">Oracle<span>.DB</span></a>
+      <a class="system-brand" href="/index/" aria-label="Oracle.DB Index">
+        <img src="/assets/img/oracle-logo.png" alt="">
+        <span class="system-title">Oracle<span>.DB</span></span>
+      </a>
       <div class="topmeta">Meridian-Knoten // Mitarbeiter // ORG-0112</div>
       <div class="user-chip"><span class="pulse"></span> EVOSS // Direktorin</div>
     </header>
@@ -119,8 +110,13 @@
             <div class="record-tags"><span class="tag">Personal</span><span class="tag">Aktiv</span></div>
           </div></div>
       </aside>
-      <section class="viewer">
-        <article class="dossier">
+      <section class="viewer loading-dossier">
+        <div class="route-loader" data-route-loader>
+          <div class="loader-label">Akte wird entschluesselt</div>
+          <div class="loader-bar"><span></span></div>
+          <div class="loader-code">ORG-0112 // BUFFER</div>
+        </div>
+        <article class="dossier" data-dossier>
           <div class="classification">
             <span>Nur interner Gebrauch // Weitergabe untersagt</span>
             <span>Freigabe: Stufe 4 - Personalakten</span>
@@ -238,7 +234,7 @@
       <span><b>ORACLE.DB</b> Meridian-Knoten online</span><span><b>AE-Register</b> statische Akten aktiv</span><span><b>Direktion</b> Sitzung EVOSS bestätigt</span><span><b>Hinweis</b> Nicht autorisierte Exporte werden protokolliert</span>
     </div></footer>
   </main>
-  <script src="/assets/js/login.js"></script>
+  <script src="/assets/js/page-load.js"></script>
   <script src="/assets/js/search.js"></script>
   <script src="/assets/js/redactions.js"></script>
 </body>

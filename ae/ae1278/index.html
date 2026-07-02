@@ -4,28 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Oracle.DB // AE-1278</title>
+  <link rel="icon" type="image/png" href="/assets/img/oracle-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/oracle.css">
 </head>
-<body class="locked">
-  <div class="login" id="login">
-    <section class="login-box">
-      <div class="login-head">
-        <div><div class="brand">Oracle.DB</div><div class="sub">internes Aktenprogramm</div></div>
-        <div class="clearance">Zugriffsstufe 5</div>
-      </div>
-      <div class="login-body">
-        <div class="field"><div class="label">Operator</div><div class="input" id="loginUser"></div></div>
-        <div class="field"><div class="label">Authentifizierungsschlüssel</div><div class="input" id="loginPass"></div></div>
-        <div class="login-status"><span class="pulse"></span><span id="loginStatus">Sitzung wird initialisiert</span></div>
-      </div>
-    </section>
-  </div>
+<body>
   <main class="app glitch">
     <header class="topbar">
-      <a class="system-title" href="/">Oracle<span>.DB</span></a>
+      <a class="system-brand" href="/index/" aria-label="Oracle.DB Index">
+        <img src="/assets/img/oracle-logo.png" alt="">
+        <span class="system-title">Oracle<span>.DB</span></span>
+      </a>
       <div class="topmeta">Meridian-Knoten // Anomale Entitäten // AE-1278</div>
       <div class="user-chip"><span class="pulse"></span> EVOSS // Direktorin</div>
     </header>
@@ -69,8 +60,13 @@
             <div class="record-tags"><span class="tag">Entitäten</span><span class="tag">Schlafend (Brașov-Berge)</span></div>
           </a></div>
       </aside>
-      <section class="viewer">
-        <article class="dossier">
+      <section class="viewer loading-dossier">
+        <div class="route-loader" data-route-loader>
+          <div class="loader-label">Akte wird entschluesselt</div>
+          <div class="loader-bar"><span></span></div>
+          <div class="loader-code">AE-1278 // BUFFER</div>
+        </div>
+        <article class="dossier" data-dossier>
           <div class="classification">
             <span>Nur interner Gebrauch // Weitergabe untersagt</span>
             <span>Freigabe: Stufe 2 - Feldzugang</span>
@@ -78,15 +74,20 @@
           <header class="hero">
             <div class="eyebrow">Anomale Entitäten // Typ: Symbiotisch-Kooperativ — Kategorie I · Status: Aktiv (Transsilvanien)</div>
             <h1>AE-1278<br>DIE GNOME</h1>
-            <div class="summary">Typ: Symbiotisch-Kooperativ (Erster dokumentierter Fall dieser Klasse)</div>
+            <div class="summary">Typ: Symbiotisch-Kooperativ (erster dokumentierter Fall dieser Klasse)</div>
           </header>
           <nav class="wiki-toc" aria-label="Inhaltsverzeichnis">
             <div class="wiki-toc-label">// INHALT</div>
             <a class="wiki-toc-item" href="#1-klassifizierung-kenndaten">1. Klassifizierung &amp; Kenndaten</a>
 <a class="wiki-toc-item" href="#2-erscheinungsbild">2. Erscheinungsbild</a>
-<a class="wiki-toc-item" href="#3-kommunikation-verhalten">3. Kommunikation &amp; Verhalten</a>
-<a class="wiki-toc-item" href="#4-f-higkeiten-artefakte-die-blumen">4. Fähigkeiten &amp; Artefakte (Die Blumen)</a>
-<a class="wiki-toc-item" href="#5-oracle-erstkontakt-transsilvanien-k03">5. ORACLE-Erstkontakt (Transsilvanien K03)</a>
+<a class="wiki-toc-item" href="#3-folkloristische-vergleichslage">3. Folkloristische Vergleichslage</a>
+<a class="wiki-toc-item" href="#4-kommunikation-sozialverhalten">4. Kommunikation &amp; Sozialverhalten</a>
+<a class="wiki-toc-item" href="#5-f-higkeiten-artefakte-die-blumen">5. Fähigkeiten &amp; Artefakte (Die Blumen)</a>
+<a class="wiki-toc-item" href="#6-oracle-erstkontakt-transsilvanien-k03">6. ORACLE-Erstkontakt (Transsilvanien K03)</a>
+<a class="wiki-toc-item" href="#7-beziehung-zu-strigoi-und-wyrm">7. Beziehung zu Strigoi und Wyrm</a>
+<a class="wiki-toc-item" href="#8-eind-mmungs-und-umgangsprotokoll">8. Eindämmungs- und Umgangsprotokoll</a>
+<a class="wiki-toc-item" href="#9-feldvermerk">9. Feldvermerk</a>
+<a class="wiki-toc-item" href="#10-direktion">10. Direktion</a>
           </nav>
           
           <section class="meta-grid" aria-label="Kenndaten">
@@ -99,24 +100,47 @@
             <div class="article"><h2 id="1-klassifizierung-kenndaten">Klassifizierung &amp; Kenndaten</h2>
 <p>AE-Kennung: AE-1278</p>
 <p>Bezeichnung: Gnome (Trollartige Waldwesen)</p>
-<p>Typ: Symbiotisch-Kooperativ (Erster dokumentierter Fall dieser Klasse)</p>
-<p>Gefahrenkategorie: I (Kaum Gefahr, kooperationsbereit)</p>
+<p>Typ: Symbiotisch-Kooperativ (erster dokumentierter Fall dieser Klasse)</p>
+<p>Gefahrenkategorie: I (kooperationsbereit, Gefährdung indirekt durch Kaskadenumfeld)</p>
 <p>Aktueller Standort: Waldlichtung zwischen Cluj und Valea Albă, Brașov-Gebirge.</p>
+<p>Bekannte Verbindungen: <a class="wiki-ref" href="/ae/ae1279/">AE-1279</a>, <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a>, <a class="wiki-ref" href="/mitarbeiter/org0077/">ORG-0077</a>, <a class="wiki-ref" href="/mitarbeiter/org0076/">ORG-0076</a>, <a class="wiki-ref" href="/mitarbeiter/org0063/">ORG-0063</a>.</p>
 <h2 id="2-erscheinungsbild">Erscheinungsbild</h2>
-<p>Kleine, ca. 1 Meter große, zerknitterte Wesen. Der Älteste unter ihnen wirkt stark gealtert (Haut wie abgenutztes Leder, wässrige Augen). Sie bewegen sich normalerweise in falscher, unnatürlicher Synchronität.</p>
-<h2 id="3-kommunikation-verhalten">Kommunikation &amp; Verhalten</h2>
-<p>Verstehen Menschen, nutzen jedoch überwiegend nonverbale Zeichen, Fieplaute (rhythmische Muster) und Blumen-Arrangements.</p>
-<p>Eine Ausnahme bildet der Älteste, der gebrochenes, abgehacktes Deutsch spricht (&quot;Reden. Schwierig. Lange nicht. Mehr.&quot;).</p>
-<p>Sie sind nicht feindselig, sondern suchen aktiv Hilfe, als sie zwischen den Strigoi und dem Wyrm eingekesselt wurden.</p>
-<h2 id="4-f-higkeiten-artefakte-die-blumen">Fähigkeiten &amp; Artefakte (Die Blumen)</h2>
-<p>Die Gnome &quot;spucken&quot; bunte Blumen, die sie für komplexe kartografische und symbolische Zwecke nutzen.</p>
-<p>Besondere Blumen:</p>
-<p>Weiße Blume: Dient als &quot;Schere&quot;, um unsichtbare Verbindungen (wie Strigoi-Parasiten) von Wirten zu kappen (&quot;Sie schneidet den Faden&quot;).</p>
-<p>Grüne Blume: Dient als Geleit oder Schlüssel (für die &quot;Tür&quot; zum Wyrm, an Jay übergeben).</p>
-<p>Schwarze Erde: Bannmittel.</p>
-<h2 id="5-oracle-erstkontakt-transsilvanien-k03">ORACLE-Erstkontakt (Transsilvanien K03)</h2>
-<p>Erstkontakt durch Dario <a class="wiki-ref" href="/mitarbeiter/org0077/">[ORG-0077]</a>. Sie warnten das ORACLE-Team per Blumenkarte vor der Kaskade (Strigoi und Wyrm). Als Elena von den Strigoi infiziert wurde, legte der Älteste eine seit Jahrzehnten aufbewahrte weiße Blume auf ihre Stirn und rettete sie.</p>
-<p>Später orchestrierten sie mit Jay die Einschläferung des Wyrms, was sie stark erschöpfte.</p><footer class="wiki-footer">
+<p>AE-1278 manifestiert sich als kleine, ungefähr einen Meter große, humanoide Wesen. Der erste Feldeindruck war nicht niedlich, sondern alt. Die Körper wirken zerknittert, gedrungen und in falscher Proportion zusammengefaltet, als habe man etwas Erdgebundenes in eine menschlich lesbare Form gezwungen.</p>
+<p>Die Haut variiert zwischen graubraun, moosig und lehmfarben. Bei jüngeren Exemplaren wirkt sie elastischer, bei älteren trocken, rissig und lederartig. Der älteste dokumentierte Gnom besitzt Haut wie abgenutztes Leder, wässrige Augen und eine langsamere, bewusstere Motorik als der Rest der Gruppe.</p>
+<p>Die Augen sind auffällig. Mehrere Beobachter beschrieben sie unabhängig voneinander als &quot;zu wissend&quot; oder &quot;zu alt&quot;. ORACLE wertet dies nicht als Hypnose, sondern als Ausdruck einer Wahrnehmung, die menschliche Einzelereignisse nicht sauber von längeren Zeiträumen trennt.</p>
+<p>Bei Stress falten die Gnome die Hände vor dem Körper. Die Geste ähnelt menschlicher Trauerhaltung oder einer Beerdigung. Bewegungen erfolgen häufig synchron: Zurückweichen, Kopfdrehen, Stillstehen und Fieplaute setzen bei mehreren Individuen gleichzeitig ein. Diese Synchronität ist kein militärisches Training, sondern vermutlich ein kollektives Nervensystem oder ein gemeinsamer Wahrnehmungstakt.</p>
+<h2 id="3-folkloristische-vergleichslage">Folkloristische Vergleichslage</h2>
+<p>Die interne Bezeichnung &quot;Gnome&quot; ist brauchbar, aber unvollständig. In älteren europäischen Naturlehren werden Gnome als erdgebundene Wesen beschrieben: klein, unterirdisch, dem Gestein und verborgenen Dingen näher als Menschen. Spätere Erzählungen vermischten sie mit Bergmännlein, Kobolden, Zwergen und Waldgeistern.</p>
+<p>AE-1278 passt nur teilweise in dieses Bild. Die Wesen sind nicht primär Schatzhüter oder trickreiche Hausgeister. Sie sind Grenzbewohner: zwischen Wald, Erde, Wasser, Wurzelwerk und Erinnerung. Ihr Verhalten wirkt weniger besitzergreifend als pflegend. Sie bewachen keinen Hort, sondern Zusammenhänge.</p>
+<p>Die trollartige Komponente bleibt dennoch korrekt. AE-1278 ist grob, fremd und körperlich nicht auf menschliche Schönheit hin geordnet. Wer sie als &quot;kleine alte Männer&quot; beschreibt, unterschätzt den nichtmenschlichen Anteil. Wer sie als Tiere beschreibt, unterschätzt ihre Planungsfähigkeit.</p>
+<h2 id="4-kommunikation-sozialverhalten">Kommunikation &amp; Sozialverhalten</h2>
+<p>AE-1278 versteht menschliche Sprache besser, als es selbst sprechen kann. Normale Kommunikation erfolgt über Gesten, Körperausrichtung, gemeinsames Fiepen und Blumen-Arrangements. Die Fieplaute sind hoch, dünn und rhythmisch. <a class="wiki-ref" href="/mitarbeiter/org0077/">ORG-0077</a> erkannte in ihnen Muster, ohne sie vollständig übersetzen zu können.</p>
+<p>Der älteste Gnom bildet die bisher einzige dokumentierte Ausnahme. Er kann gebrochenes Deutsch sprechen, jedoch mit sichtbarer Anstrengung. Seine Sätze sind kurz, langsam und auf das operativ Notwendige reduziert. Die Pausen zwischen den Wörtern wirken nicht wie Unsicherheit, sondern wie das Suchen nach einem selten benutzten Werkzeug.</p>
+<p>AE-1278 ist nicht feindselig. Die Gruppe suchte aktiv Kontakt, weil sie zwischen <a class="wiki-ref" href="/ae/ae1279/">AE-1279</a>, <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a> und den umliegenden Dörfern eingekesselt war. Sie warnte nicht durch Sprache, sondern durch Kartografie: Straße, Wald, Dorfpunkte, Wyrm-Signal, Strigoi-Zahnformation und eigene Position wurden als Blumenbild gelegt.</p>
+<p>Die Gruppe zeigt starke Fürsorge für Zeitpunkte. Mehrere Gegenstände wurden offenbar nicht zufällig erzeugt, sondern &quot;für genau diesen Moment&quot; aufbewahrt. Das betrifft insbesondere die weiße Blume für Elena und die grüne Blume für <a class="wiki-ref" href="/mitarbeiter/org0063/">ORG-0063</a>. ORACLE kann derzeit nicht entscheiden, ob AE-1278 Zukunft sieht, zyklische Muster erkennt oder schlicht sehr lange vorbereitet.</p>
+<h2 id="5-f-higkeiten-artefakte-die-blumen">Fähigkeiten &amp; Artefakte (Die Blumen)</h2>
+<p>AE-1278 produziert Blumen nicht dekorativ. Die Blüten sind biologische, symbolische und möglicherweise raumwirksame Werkzeuge. Das Hervorbringen wurde von Beobachtern als &quot;Spucken&quot; beschrieben, obwohl keine normale Verdauungs- oder Atemlogik erkennbar ist.</p>
+<p>Weiße Blume: Dient als Schere. Sie kann unsichtbare oder bioelektrische Verbindungen zwischen Sendern und Empfängern trennen. Bei Elena kappte sie die Verbindung zu <a class="wiki-ref" href="/ae/ae1279/">AE-1279</a>. Der Eingriff war schmerzhaft, aber lebensrettend. Die Aussage des ältesten Gnoms &quot;Sie schneidet den Faden&quot; wird seitdem als technische Kurzform geführt.</p>
+<p>Grüne Blume: Dient als Geleit, Schlüssel oder Erlaubnis. Sie wurde <a class="wiki-ref" href="/mitarbeiter/org0063/">ORG-0063</a> übergeben, bevor er die unsichtbare Tür im Süden betrat. Die Funktion ist nicht vollständig verstanden. Wahrscheinlich markiert sie den Träger als von AE-1278 begleitet oder zumindest nicht sofort abzuweisen.</p>
+<p>Schwarze Erde: Dient als Bann- oder Sichtschutzmittel. Sie wurde in Verbindung mit der grünen Blume ausgelegt, um einen Ort zu schaffen, &quot;wo er nicht sieht&quot;. Mit &quot;er&quot; ist <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a> gemeint. Die Erde reagierte nicht wie normale Bodenprobe und verlor nach dem Ereignis Teile ihrer Wirkung.</p>
+<p>Blumenkarte: Rote Blüten standen für Dörfer, violette Zahnformationen für <a class="wiki-ref" href="/ae/ae1279/">AE-1279</a>, schwarze warme Blüten für <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a> und grüne Markierungen für AE-1278 selbst. Die Karte war nicht nur Darstellung, sondern Warnung. Einzelne Blüten besaßen Wärme, Geruch und Ausrichtung.</p>
+<h2 id="6-oracle-erstkontakt-transsilvanien-k03">ORACLE-Erstkontakt (Transsilvanien K03)</h2>
+<p>Erstkontakt erfolgte durch <a class="wiki-ref" href="/mitarbeiter/org0077/">ORG-0077</a>. Die Gnome traten nicht offen auf eine Straße, sondern führten über Zeichen und wiederholte Muster zur Lichtung. <a class="wiki-ref" href="/mitarbeiter/org0076/">ORG-0076</a> bestätigte anschließend die geologische und hydrologische Unruhe im Gebiet.</p>
+<p>Als Elena mit aktiver Strigoi-Verbindung zur Lichtung gebracht wurde, reagierten die Gnome sofort. Sie hatten schneller verstanden, was im Kind arbeitete, als das Feldteam es klinisch erklären konnte. Der älteste Gnom legte die seit langer Zeit aufbewahrte weiße Blume auf Elenas Stirn. Die Bewegung im Blut verlangsamte sich. Der Faden riss.</p>
+<p>Nach dem Schnitt änderte sich die Lage. <a class="wiki-ref" href="/ae/ae1279/">AE-1279</a> verlor einen wichtigen Empfänger, <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a> wurde wach, und die Gnome richteten ihre Aufmerksamkeit nach Westen und Süden. Die Entitäten standen nicht untereinander in einfacher Allianz, teilten aber ein tieferes Medium. AE-1278 erkannte diese Kaskade früher als ORACLE.</p>
+<p>Beim finalen Eindämmungsversuch standen die Gnome in einer Linie nach Süden, Hand in Hand. Das Fiepen wurde gemeinsamer, dünner und älter. <a class="wiki-ref" href="/mitarbeiter/org0063/">ORG-0063</a> erhielt die grüne Blume und trat durch die Tür. Nach dem Einschlafen von <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a> waren die Gnome sichtbar erschöpft; der älteste sank auf die Knie.</p>
+<h2 id="7-beziehung-zu-strigoi-und-wyrm">Beziehung zu Strigoi und Wyrm</h2>
+<p>AE-1278 beschreibt <a class="wiki-ref" href="/ae/ae1279/">AE-1279</a> und <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a> nicht als verbündet. Die Formulierung des ältesten Gnoms lautet sinngemäß: nicht verbunden, aber im selben Wasser. Zwei Fische, die sich nicht kennen, aber dasselbe Meer atmen.</p>
+<p>Diese Aussage ist operativ zentral. AE-1278 nimmt Verbindungen wahr, die weder soziale Beziehungen noch direkte Kontrolle sind. Strigoi, Wyrm und Gnome reagieren auf ein gemeinsames Umfeld: Wasser, Erde, Blut, Stimme oder etwas darunter. ORACLE führt diese Ebene vorläufig als &quot;Kaskadenmedium&quot;.</p>
+<p>AE-1278 scheint das Medium nicht zu beherrschen, sondern darin zu leben. Die Gruppe kann Fäden schneiden, Sichtlinien verdecken und Türen vorbereiten. Sie kann die Kaskade aber nicht allein stoppen. Deshalb suchte sie Hilfe.</p>
+<h2 id="8-eind-mmungs-und-umgangsprotokoll">Eindämmungs- und Umgangsprotokoll</h2>
+<p>AE-1278 wird nicht eingefangen. Kein Exemplar darf ohne ausdrückliche Direktionserlaubnis aus dem Gebiet entfernt werden. Die Wesen sind Verbündete unter Stress, keine Ressource.</p>
+<p>Kommunikation erfolgt langsam, mit sichtbaren Gesten und ohne hektisches Umstellen von Personen. Lautes Ansprechen mehrerer Gnome gleichzeitig verschlechtert die Antwortqualität. <a class="wiki-ref" href="/mitarbeiter/org0077/">ORG-0077</a> bleibt bevorzugter Kontaktoperator. <a class="wiki-ref" href="/mitarbeiter/org0076/">ORG-0076</a> ist für Boden- und Wasserabgleich hinzuzuziehen.</p>
+<p>Blumen, Erde oder andere Objekte dürfen nicht als Souvenir oder Laborprobe eingezogen werden, solange ein Gnom sie aktiv auslegt. Nach Abschluss eines Ereignisses ist eine Freigabe durch das älteste Exemplar abzuwarten. Die Gnome verstehen Besitz anders, aber sie verstehen Diebstahl.</p>
+<h2 id="9-feldvermerk">Feldvermerk</h2>
+<p>Sie sehen aus, als wären sie zu klein für das, was sie wissen. Das ist kein poetischer Satz. Das ist eine Einsatzwarnung.</p>
+<h2 id="10-direktion">Direktion</h2>
+<p>Solange AE-1278 mit uns spricht, hören wir zu. Niemand macht aus diesen Wesen eine zweite Ressourcenkammer.</p><footer class="wiki-footer">
             <span>Datenbankkennung: AE-1278</span>
             <span>Kategorie: Anomale Entitäten</span>
             <span>Synchronisation: Oracle.DB</span>
@@ -144,7 +168,7 @@
       <span><b>ORACLE.DB</b> Meridian-Knoten online</span><span><b>AE-Register</b> statische Akten aktiv</span><span><b>Direktion</b> Sitzung EVOSS bestätigt</span><span><b>Hinweis</b> Nicht autorisierte Exporte werden protokolliert</span>
     </div></footer>
   </main>
-  <script src="/assets/js/login.js"></script>
+  <script src="/assets/js/page-load.js"></script>
   <script src="/assets/js/search.js"></script>
   <script src="/assets/js/redactions.js"></script>
 </body>

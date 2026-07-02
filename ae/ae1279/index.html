@@ -4,28 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Oracle.DB // AE-1279</title>
+  <link rel="icon" type="image/png" href="/assets/img/oracle-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/oracle.css">
 </head>
-<body class="locked">
-  <div class="login" id="login">
-    <section class="login-box">
-      <div class="login-head">
-        <div><div class="brand">Oracle.DB</div><div class="sub">internes Aktenprogramm</div></div>
-        <div class="clearance">Zugriffsstufe 5</div>
-      </div>
-      <div class="login-body">
-        <div class="field"><div class="label">Operator</div><div class="input" id="loginUser"></div></div>
-        <div class="field"><div class="label">Authentifizierungsschlüssel</div><div class="input" id="loginPass"></div></div>
-        <div class="login-status"><span class="pulse"></span><span id="loginStatus">Sitzung wird initialisiert</span></div>
-      </div>
-    </section>
-  </div>
+<body>
   <main class="app glitch">
     <header class="topbar">
-      <a class="system-title" href="/">Oracle<span>.DB</span></a>
+      <a class="system-brand" href="/index/" aria-label="Oracle.DB Index">
+        <img src="/assets/img/oracle-logo.png" alt="">
+        <span class="system-title">Oracle<span>.DB</span></span>
+      </a>
       <div class="topmeta">Meridian-Knoten // Anomale Entitäten // AE-1279</div>
       <div class="user-chip"><span class="pulse"></span> EVOSS // Direktorin</div>
     </header>
@@ -69,8 +60,13 @@
             <div class="record-tags"><span class="tag">Entitäten</span><span class="tag">Schlafend (Brașov-Berge)</span></div>
           </a></div>
       </aside>
-      <section class="viewer">
-        <article class="dossier">
+      <section class="viewer loading-dossier">
+        <div class="route-loader" data-route-loader>
+          <div class="loader-label">Akte wird entschluesselt</div>
+          <div class="loader-bar"><span></span></div>
+          <div class="loader-code">AE-1279 // BUFFER</div>
+        </div>
+        <article class="dossier" data-dossier>
           <div class="classification">
             <span>Nur interner Gebrauch // Weitergabe untersagt</span>
             <span>Freigabe: Stufe 2 - Feldzugang</span>
@@ -78,14 +74,21 @@
           <header class="hero">
             <div class="eyebrow">Anomale Entitäten // Typ: Vampirisch-Parasitär — Kategorie III · Status: Aktiv (Transsilvanien)</div>
             <h1>AE-1279<br>STRIGOI (Balkan-Kaskade)</h1>
-            <div class="summary">Gefahrenkategorie: III (Hohe Ansteckungs/Todesrate, regionales Phänomen)</div>
+            <div class="summary">Typ: Vampirisch-Parasitär (Rumänien / Transsilvanien)</div>
           </header>
           <nav class="wiki-toc" aria-label="Inhaltsverzeichnis">
             <div class="wiki-toc-label">// INHALT</div>
             <a class="wiki-toc-item" href="#1-klassifizierung-kenndaten">1. Klassifizierung &amp; Kenndaten</a>
-<a class="wiki-toc-item" href="#2-parasitismus-befall">2. Parasitismus &amp; Befall</a>
-<a class="wiki-toc-item" href="#3-die-hierarchie">3. Die Hierarchie</a>
-<a class="wiki-toc-item" href="#4-oracle-ereignis-valea-alb">4. ORACLE-Ereignis (Valea Albă)</a>
+<a class="wiki-toc-item" href="#2-historische-dokumentation-herkunft">2. Historische Dokumentation &amp; Herkunft</a>
+<a class="wiki-toc-item" href="#3-erscheinungsbild">3. Erscheinungsbild</a>
+<a class="wiki-toc-item" href="#4-parasitismus-befall">4. Parasitismus &amp; Befall</a>
+<a class="wiki-toc-item" href="#5-die-hierarchie-mort-viu-viu-vollst-ndig">5. Die Hierarchie (Mort, Viu, Viu Vollständig)</a>
+<a class="wiki-toc-item" href="#6-folkloristische-vergleichslage">6. Folkloristische Vergleichslage</a>
+<a class="wiki-toc-item" href="#7-oracle-ereignis-valea-alb">7. ORACLE-Ereignis (Valea Albă)</a>
+<a class="wiki-toc-item" href="#8-verbindung-zur-balkan-kaskade">8. Verbindung zur Balkan-Kaskade</a>
+<a class="wiki-toc-item" href="#9-eind-mmung-schutzma-nahmen">9. Eindämmung &amp; Schutzmaßnahmen</a>
+<a class="wiki-toc-item" href="#10-feldwarnung">10. Feldwarnung</a>
+<a class="wiki-toc-item" href="#11-medizinischer-zusatz">11. Medizinischer Zusatz</a>
           </nav>
           
           <section class="meta-grid" aria-label="Kenndaten">
@@ -97,21 +100,54 @@
           <section class="content-grid">
             <div class="article"><h2 id="1-klassifizierung-kenndaten">Klassifizierung &amp; Kenndaten</h2>
 <p>AE-Kennung: AE-1279</p>
-<p>Bezeichnung: Strigoi</p>
-<p>Typ: Vampirisch-Parasitär (Balkan/Rumänien)</p>
-<p>Gefahrenkategorie: III (Hohe Ansteckungs/Todesrate, regionales Phänomen)</p>
-<p>Eindämmungsstatus: Teilweise zerschlagen, aber Alpha-Entität noch aktiv.</p>
-<h2 id="2-parasitismus-befall">Parasitismus &amp; Befall</h2>
-<p>Der Strigoi-Mythos ist in der Realität klinisch-parasitär. Ein Erreger, der sich mit dem oder als Blut bewegt (Bewegungen unter der Haut sichtbar). Opfer dissoziieren völlig und verfallen in Katatonie, während ihr Blut als &quot;Netzwerk&quot; agiert.</p>
-<h2 id="3-die-hierarchie">Die Hierarchie</h2>
-<p>Das Strigoi-Netzwerk funktioniert dreistufig:</p>
-<p>1. Strigoi mort (&quot;Die Toten&quot;): Dünn, blass, untot. Sie sind nicht die Jäger, sondern die &quot;Werkzeuge/Empfänger&quot; der Lebenden. Zielen auf rohe Gewalt und Hunger ab.</p>
-<p>2. Strigoi viu (&quot;Die Lebenden&quot;): Infizierte lebende Menschen (z.B. Ion, Maria, Elena). Sie dienen als &quot;Sender&quot; in bioelektrischer Synchronisation mit den Toten. Die Toten gehorchen dem Netzwerk der Lebenden.</p>
-<p>3. Strigoi viu vollständig (&quot;Die Lebenden – fertig&quot;): Das Endstadium. Eine Entität, die einen menschlichen Wirt so perfekt übernommen hat, dass die Haut unnatürlich fehlerlos wirkt (&quot;wie frisch angezogen&quot;). Diese Stufe zeichnet sich durch extreme Intelligenz, Geduld und das &quot;Sammeln&quot; aus (&quot;der Teil danach&quot;). Kann Stimmen imitieren, liest indirekte Erinnerungen aus dem Netzwerk.</p>
-<h2 id="4-oracle-ereignis-valea-alb">ORACLE-Ereignis (Valea Albă)</h2>
-<p>Das Feldteam versuchte in Valea Albă Überlebende zu retten. Try <a class="wiki-ref" href="/mitarbeiter/org0051/">[ORG-0051]</a> evakuierte Elena. Da Elena als Infizierte im Vandura lag, diente sie als &quot;offenes Mikrofon&quot; für das gesamte Strigoi-Netzwerk, das so alle Gespräche im Auto abhören konnte.</p>
-<p>Das Netzwerk der Strigoi mort brach großteils zusammen, als Jay den Wyrm wieder einschläferte, da beide Phänomene das &quot;gleiche Wasser&quot; atmeten.</p>
-<p>Das Strigoi viu (vollständig) traf das Team auf der Straße, wartet jedoch noch immer dort und ist nicht neutralisiert.</p><footer class="wiki-footer">
+<p>Bezeichnung: Strigoi (Balkan-Kaskade)</p>
+<p>Typ: Vampirisch-Parasitär (Rumänien / Transsilvanien)</p>
+<p>Gefahrenkategorie: III (regionale Ausbreitung, hohe Todes- und Befallsrate, intelligente Alpha-Stufe)</p>
+<p>Eindämmungsstatus: Teilweise zerschlagen. Strigoi mort kollabierten nach Einschläferung von <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a>. Strigoi viu vollständig weiterhin aktiv.</p>
+<p>Primärgebiet: Valea Albă, Cluj-Region, Waldstraße zwischen Dorf und Lichtung.</p>
+<p>Bekannte Verbindungen: <a class="wiki-ref" href="/ae/ae1278/">AE-1278</a>, <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a>, <a class="wiki-ref" href="/mitarbeiter/org0051/">ORG-0051</a>, <a class="wiki-ref" href="/mitarbeiter/org0063/">ORG-0063</a>, <a class="wiki-ref" href="/mitarbeiter/org0077/">ORG-0077</a>, <a class="wiki-ref" href="/mitarbeiter/org0076/">ORG-0076</a>.</p>
+<h2 id="2-historische-dokumentation-herkunft">Historische Dokumentation &amp; Herkunft</h2>
+<p>Strigoi sind in rumänischer Überlieferung keine einheitliche Kreatur, sondern eine Kategorie für gefährliche Tote, verwandelte Lebende und Menschen, deren Seele oder Lebenskraft nach außen falsch arbeitet. Genau diese Uneindeutigkeit passt zum ORACLE-Befund. AE-1279 ist kein einzelner Untoter, sondern ein Netzwerkzustand.</p>
+<p>Ältere Berichte unterscheiden zwischen lebenden Strigoi und toten Strigoi. In gewöhnlicher Folklore wurde daraus ein moralisches oder religiöses Problem: Menschen, die zu Lebzeiten verdächtig waren, konnten nach dem Tod zurückkehren; Tote konnten Blut, Milch, Kraft oder Glück aus Häusern ziehen; manche erschienen in Tiergestalt oder als vertraute Stimme. ORACLE wertet diese Motive als laienhafte Beschreibungen von Sendern, Empfängern und Projektionen.</p>
+<p>Dr. Popescu überlieferte zusätzliche lokale Hinweise aus Familienerzählungen und medizinischen Randnotizen. Mehrere vermisste Personen in der Region Cluj wurden nicht wie Opfer eines Raubtiers beschrieben, sondern wie Menschen, die langsam aufgehört hatten, allein zu sein. Der Körper blieb anwesend. Der Wille wurde extern.</p>
+<h2 id="3-erscheinungsbild">Erscheinungsbild</h2>
+<p>Strigoi mort erscheinen dünn, blass und unnatürlich aufrecht. Die Haut wirkt ausgetrocknet, nicht bloß krank. Lippen sind zurückgezogen, Mundöffnung und Kopfbewegung folgen teilweise synchronisierten Signalen. Einzelne Exemplare standen nach massiver Gewalteinwirkung wieder auf, was auf geringe Schmerzreaktion und hohen strukturellen Restgehorsam schließen lässt.</p>
+<p>Strigoi viu sind äußerlich noch lebende Menschen. Bei Ion, Maria und Elena zeigten sich Blutbewegungen unter der Haut, katatone Zustände, Blickfixierung und verzögerte Reaktionen. Maria zitterte sichtbar während der Synchronisation. Elena drehte den Kopf in Richtung Strigoi mort, obwohl sie nicht aktiv ansprechbar war.</p>
+<p>Strigoi viu vollständig ist die gefährlichste beobachtete Stufe. Die Gestalt wirkte nicht verwest, sondern zu perfekt. Die Haut saß wie frisch angezogen. Gesicht, Stimme und Auftreten konnten aus bekannten Mustern zusammengesetzt werden. Das Wesen wartete, sprach und plante. Es hatte Geduld. Das unterscheidet es fundamental von Strigoi mort.</p>
+<p>Das vollständige Strigoi viu benutzte Stimmen und Gesprächsfragmente, die es über das Netzwerk erhalten hatte. Es imitierte nicht durch Magie im theatralischen Sinn, sondern durch Zugriff auf gesammelte Signale. Trys Stimme und Gesicht wurden als Köder oder Gesprächsform verwendet, ohne dass <a class="wiki-ref" href="/mitarbeiter/org0051/">ORG-0051</a> dadurch als infiziert gilt.</p>
+<h2 id="4-parasitismus-befall">Parasitismus &amp; Befall</h2>
+<p>Der Strigoi-Mythos ist in diesem Fall klinisch-parasitär. Der Erreger bewegt sich nicht einfach im Blut. Er bewegt sich mit dem Blut und möglicherweise als Blut. Sichtbare Bewegungen unter der Haut entsprechen interner Signalweitergabe. Befallene Menschen dissoziieren, verlieren Eigeninitiative und werden zu Sendern im Netzwerk.</p>
+<p>Das Netzwerk ist bioelektrisch, hämatologisch und akustisch zugleich. Die Strigoi mort reagieren auf lebende Sender. Sie sind nicht die eigentlichen Jäger, sondern Werkzeuge. Ihre Gewalt ist roh, aber nicht frei. Werden Sender gestört, stoppen oder verlangsamen sich die Toten.</p>
+<p>Elena war während der Evakuierung ein offenes Mikrofon. Alle Gespräche im Vandura vor dem Fadenschnitt konnten vom Netzwerk erfasst werden. Diese Erkenntnis erklärt, warum das vollständige Strigoi viu später Stimmen, Details und Gesprächsrichtungen kannte, die es physisch nicht hätte hören dürfen.</p>
+<p>Der Befall ist nicht sofort irreversibel. Die weiße Blume von <a class="wiki-ref" href="/ae/ae1278/">AE-1278</a> trennte Elena vom Netzwerk. Der Eingriff verursachte Schmerz und physiologische Instabilität, erhielt aber Eigenperson und Überlebenschance. Für Ion, Maria und weitere Vermisste liegt keine vergleichbare Trennung vor.</p>
+<h2 id="5-die-hierarchie-mort-viu-viu-vollst-ndig">Die Hierarchie (Mort, Viu, Viu Vollständig)</h2>
+<p>1. Strigoi mort (&quot;die Toten&quot;): Blasse, dünne, untote Empfänger und Werkzeuge. Sie besitzen Hunger und Gewalt, aber keine erkennbare Strategie. Sie folgen Sendern und können nach Trauma weiterlaufen. Ihre Aufgabe ist Druck, Einkreisung und Zugriff.</p>
+<p>2. Strigoi viu (&quot;die Lebenden&quot;): Infizierte lebende Menschen. Sie sind stärker als die Toten, weil sie senden. Das Feldteam hielt zunächst die Toten für die zentrale Gefahr. Die tatsächliche Steuerung lag jedoch bei den lebenden Infizierten.</p>
+<p>3. Strigoi viu vollständig (&quot;die Lebenden — fertig&quot;): Endstadium oder Alpha-Stufe. Diese Form hat den menschlichen Wirt so sauber übernommen, dass keine Verwesung sichtbar ist. Sie sammelt statt nur zu nehmen. Sie spricht, wartet, wählt Stimmen aus und kann Informationen aus dem Netzwerk indirekt lesen.</p>
+<p>Die Bezeichnung &quot;vollständig&quot; bedeutet nicht abgeschlossen im Sinne von stabiler Spezies. Sie bedeutet, dass das Nehmen vorbei ist und das Behalten beginnt. Dieser Satz stammt aus direkter Begegnung und wird als Selbstbeschreibung der Entität geführt.</p>
+<h2 id="6-folkloristische-vergleichslage">Folkloristische Vergleichslage</h2>
+<p>Rumänische Strigoi-Legenden nennen häufig Blutverlust, nächtliche Rückkehr, Tierform, unsichtbaren Schaden, Milchdiebstahl, familiäre Bindungen und die Unruhe falsch beerdigter Toter. ORACLE behandelt diese Motive als verzerrte Beobachtungen eines Netzwerks, das Lebende und Tote nicht sauber trennt.</p>
+<p>Das Motiv der lebenden Strigoi ist besonders relevant. In älteren Erzählungen konnten Menschen bereits vor ihrem Tod Strigoi sein: auffällig geboren, sozial abweichend, mit einem zweiten Willen oder einer gefährlichen Seele. AE-1279 bestätigt diesen Kern auf biologische Weise. Die Lebenden sind nicht Vorstufe der Toten. Sie sind die stärkere Komponente.</p>
+<p>Traditionelle Abwehrmaßnahmen wie Pfählen, Enthaupten, Mundblockade, Knoblauch, geweihte Schwellen oder St.-Andreas-Rituale werden nicht als zuverlässig anerkannt. Einzelne Maßnahmen könnten dennoch zufällig gewirkt haben, wenn sie Mund, Blut, Schwelle oder familiäre Bindung unterbrachen. ORACLE ersetzt diese Praxis durch kontrollierte Trennung, Isolation und Fadenschnitt durch <a class="wiki-ref" href="/ae/ae1278/">AE-1278</a>-Artefakte, sofern verfügbar.</p>
+<h2 id="7-oracle-ereignis-valea-alb">ORACLE-Ereignis (Valea Albă)</h2>
+<p>Das Feldteam betrat Valea Albă unter Annahme einer akuten Vermissten- und Infektionslage. Drei Strigoi-Gestalten traten aus dem Wald. Sie stoppten in etwa vier Metern Entfernung gleichzeitig. Dieser Stillstand fiel zeitlich mit Reaktionen lebender Infizierter zusammen.</p>
+<p>Try evakuierte Elena aus dem Dorf und ließ Ion und Maria zurück. Operativ war dies die einzige sofort durchführbare Rettung. Moralisch bleibt die Entscheidung offen. Ein Strigoi mort drehte den Kopf und folgte dem Vorgang mit dem Blick, griff jedoch nicht an. Das spricht gegen autonome Jagd und für Netzwerkpriorität.</p>
+<p>Auf der Lichtung kappte <a class="wiki-ref" href="/ae/ae1278/">AE-1278</a> Elenas Verbindung mit der weißen Blume. Danach reagierte das Gebiet. Strigoi mort näherten sich aus Westen. <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a> erwachte im Süden. Das vollständige Strigoi viu stellte sich später auf der Straße vor das Fahrzeug und sprach mit Trys Stimme.</p>
+<p>Trys Gruppe war zwischen einem denkenden Strigoi viu vollständig vorne und Strigoi mort hinten eingekesselt. Die Entscheidung, zu wenden und durch die Toten zurück zur Lichtung zu fahren, verhinderte direkten Kontakt mit der Alpha-Stufe. Mehrere Strigoi mort wurden vom Vandura getroffen, standen jedoch wieder auf.</p>
+<p>Als <a class="wiki-ref" href="/mitarbeiter/org0063/">ORG-0063</a> <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a> wieder einschläferte, fielen die Strigoi mort reihenweise. Duro nahm dies als unregelmäßiges Klatschen im Boden wahr. Das Netzwerk verlor Werkzeuge, aber nicht seinen Kern. Das vollständige Strigoi viu blieb aktiv.</p>
+<h2 id="8-verbindung-zur-balkan-kaskade">Verbindung zur Balkan-Kaskade</h2>
+<p>AE-1279 ist nicht direkt mit <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a> verbunden. <a class="wiki-ref" href="/ae/ae1278/">AE-1278</a> beschreibt beide Phänomene als im selben Wasser befindlich. Diese Formulierung wird als Hinweis auf ein gemeinsames Kaskadenmedium geführt: etwas, das Blut, Wasser, Stimme, Boden und Schlaf berührt, ohne selbst eindeutig eines davon zu sein.</p>
+<p>Der Fadenschnitt an Elena war der Auslöser für eine Kettenreaktion. Das Netzwerk verlor einen Sender. <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a> hörte den Riss. <a class="wiki-ref" href="/ae/ae1278/">AE-1278</a> hatte diesen Moment vorbereitet, konnte ihn aber nicht allein kontrollieren.</p>
+<p>Es ist möglich, dass AE-1279 Informationen sammelt, die <a class="wiki-ref" href="/ae/ae1280/">AE-1280</a> im Halbschlaf hören kann. Der älteste Gnom sagte, der Wyrm höre, was die Stimmen sammeln. Diese Aussage ist nicht als technische Erklärung ausreichend, aber als Gefahrenmodell brauchbar.</p>
+<h2 id="9-eind-mmung-schutzma-nahmen">Eindämmung &amp; Schutzmaßnahmen</h2>
+<p>Primärziel ist die Identifikation lebender Sender. Tote Werkzeuge zu zerstören hat begrenzten Wert, solange Strigoi viu aktiv bleiben. Feldteams müssen bei jeder Begegnung davon ausgehen, dass scheinbar gerettete Opfer zugleich Übertragungsknoten sein können.</p>
+<p>Infizierte Kinder, Verletzte oder Katatone werden nicht exekutiert. Die Rettung Elenas beweist, dass Trennung möglich ist. Gleichzeitig ist jeder Transport mit offenen Sendern als Datenleck zu behandeln. Funkdisziplin, Namen, Einsatzabsichten und interne Konflikte dürfen in Gegenwart eines ungetrennten Wirts nicht ausgesprochen werden.</p>
+<p>Bekannte Schutzmaßnahme: weiße Blume von <a class="wiki-ref" href="/ae/ae1278/">AE-1278</a>. Keine synthetische Replik verfügbar. Popescus aufbewahrte Blume ist als potenzielles Gegenmittel eingestuft, aber nicht als Vorrat. Einsatz nur nach Direktion oder medizinischer Notlage.</p>
+<p>Das vollständige Strigoi viu darf nicht in ein Gespräch gezwungen werden, nur weil es spricht. Seine Geduld ist keine Verhandlungsbereitschaft. Jede Unterhaltung ist Informationsabgabe.</p>
+<h2 id="10-feldwarnung">Feldwarnung</h2>
+<p>Die Toten sind laut. Die Lebenden sind gefährlich. Das Ding, das fertig ist, wartet.</p>
+<h2 id="11-medizinischer-zusatz">Medizinischer Zusatz</h2>
+<p>Wer in Anwesenheit eines vermuteten Strigoi viu über Einsatzpläne spricht, schreibt sie auf die Haut jedes Strigoi mort in Reichweite. Das ist kein Bild. Das ist die aktuelle Arbeitshypothese.</p><footer class="wiki-footer">
             <span>Datenbankkennung: AE-1279</span>
             <span>Kategorie: Anomale Entitäten</span>
             <span>Synchronisation: Oracle.DB</span>
@@ -139,7 +175,7 @@
       <span><b>ORACLE.DB</b> Meridian-Knoten online</span><span><b>AE-Register</b> statische Akten aktiv</span><span><b>Direktion</b> Sitzung EVOSS bestätigt</span><span><b>Hinweis</b> Nicht autorisierte Exporte werden protokolliert</span>
     </div></footer>
   </main>
-  <script src="/assets/js/login.js"></script>
+  <script src="/assets/js/page-load.js"></script>
   <script src="/assets/js/search.js"></script>
   <script src="/assets/js/redactions.js"></script>
 </body>

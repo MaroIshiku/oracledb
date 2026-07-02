@@ -4,28 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Oracle.DB // AE-1280</title>
+  <link rel="icon" type="image/png" href="/assets/img/oracle-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/oracle.css">
 </head>
-<body class="locked">
-  <div class="login" id="login">
-    <section class="login-box">
-      <div class="login-head">
-        <div><div class="brand">Oracle.DB</div><div class="sub">internes Aktenprogramm</div></div>
-        <div class="clearance">Zugriffsstufe 5</div>
-      </div>
-      <div class="login-body">
-        <div class="field"><div class="label">Operator</div><div class="input" id="loginUser"></div></div>
-        <div class="field"><div class="label">Authentifizierungsschlüssel</div><div class="input" id="loginPass"></div></div>
-        <div class="login-status"><span class="pulse"></span><span id="loginStatus">Sitzung wird initialisiert</span></div>
-      </div>
-    </section>
-  </div>
+<body>
   <main class="app glitch">
     <header class="topbar">
-      <a class="system-title" href="/">Oracle<span>.DB</span></a>
+      <a class="system-brand" href="/index/" aria-label="Oracle.DB Index">
+        <img src="/assets/img/oracle-logo.png" alt="">
+        <span class="system-title">Oracle<span>.DB</span></span>
+      </a>
       <div class="topmeta">Meridian-Knoten // Anomale Entitäten // AE-1280</div>
       <div class="user-chip"><span class="pulse"></span> EVOSS // Direktorin</div>
     </header>
@@ -69,8 +60,13 @@
             <div class="record-tags"><span class="tag">Entitäten</span><span class="tag">Schlafend (Brașov-Berge)</span></div>
           </div></div>
       </aside>
-      <section class="viewer">
-        <article class="dossier">
+      <section class="viewer loading-dossier">
+        <div class="route-loader" data-route-loader>
+          <div class="loader-label">Akte wird entschluesselt</div>
+          <div class="loader-bar"><span></span></div>
+          <div class="loader-code">AE-1280 // BUFFER</div>
+        </div>
+        <article class="dossier" data-dossier>
           <div class="classification">
             <span>Nur interner Gebrauch // Weitergabe untersagt</span>
             <span>Freigabe: Stufe 2 - Feldzugang</span>
@@ -83,9 +79,16 @@
           <nav class="wiki-toc" aria-label="Inhaltsverzeichnis">
             <div class="wiki-toc-label">// INHALT</div>
             <a class="wiki-toc-item" href="#1-klassifizierung-kenndaten">1. Klassifizierung &amp; Kenndaten</a>
-<a class="wiki-toc-item" href="#2-erscheinungsbild-ausma-e">2. Erscheinungsbild &amp; Ausmaße</a>
-<a class="wiki-toc-item" href="#3-die-verbindung-zur-kaskade">3. Die Verbindung zur Kaskade</a>
-<a class="wiki-toc-item" href="#4-eind-mmung-die-t-r-im-s-den">4. Eindämmung (Die Tür im Süden)</a>
+<a class="wiki-toc-item" href="#2-grundbefund">2. Grundbefund</a>
+<a class="wiki-toc-item" href="#3-erscheinungsbild-ausma-e">3. Erscheinungsbild &amp; Ausmaße</a>
+<a class="wiki-toc-item" href="#4-historische-und-folkloristische-vergleichslage">4. Historische und folkloristische Vergleichslage</a>
+<a class="wiki-toc-item" href="#5-verhalten-reaktionsmuster">5. Verhalten &amp; Reaktionsmuster</a>
+<a class="wiki-toc-item" href="#6-die-verbindung-zur-kaskade">6. Die Verbindung zur Kaskade</a>
+<a class="wiki-toc-item" href="#7-eind-mmung-die-t-r-im-s-den">7. Eindämmung (Die Tür im Süden)</a>
+<a class="wiki-toc-item" href="#8-tenno-vermerk-unsichere-vorl-ufer">8. Tenno-Vermerk: Unsichere Vorläufer</a>
+<a class="wiki-toc-item" href="#9-eind-mmungsstatus-risiken">9. Eindämmungsstatus &amp; Risiken</a>
+<a class="wiki-toc-item" href="#10-feldvermerk">10. Feldvermerk</a>
+<a class="wiki-toc-item" href="#11-direktion">11. Direktion</a>
           </nav>
           
           <section class="meta-grid" aria-label="Kenndaten">
@@ -100,17 +103,46 @@
 <p>Bezeichnung: Wyrm-Fragment</p>
 <p>Typ: Kryptid — Fragmentiert-Territorial</p>
 <p>Gefahrenkategorie: IV (Massenvernichtungspotenzial bei vollem Erwachen)</p>
-<p>Eindämmungsstatus: Unter prekärer Kontrolle schlafend.</p>
-<h2 id="2-erscheinungsbild-ausma-e">Erscheinungsbild &amp; Ausmaße</h2>
-<p>Kein klassischer &quot;Drache&quot;, sondern etwas ungleich Größeres, das in Fragmenten tief unter der Erde überlebt. Duro <a class="wiki-ref" href="/mitarbeiter/org0076/">[ORG-0076]</a> spürte eine Störung der Wasserströme im Gebirge, die größer war als jede bisher dokumentierte Entität. Begleitet von extremen Hitze-Signaturen und Erschütterungen.</p>
-<h2 id="3-die-verbindung-zur-kaskade">Die Verbindung zur Kaskade</h2>
-<p>Der Wyrm erwachte als direkte Reaktion auf die Vorgänge im Strigoi-Netzwerk (das Kappen der Verbindung durch die weiße Blume der Gnome).</p>
-<p>Laut den Gnomen sind Strigoi und Wyrm &quot;nicht verbunden, aber im selben Wasser. Wie zwei Fische, die sich nicht kennen, aber dasselbe Meer atmen.&quot;</p>
-<p>Etwas muss beide Phänomene (und die Gnome) gleichzeitig geweckt/zusammengerufen haben.</p>
-<h2 id="4-eind-mmung-die-t-r-im-s-den">Eindämmung (Die Tür im Süden)</h2>
-<p>Das Team konnte den Wyrm nicht konventionell bekämpfen. Jay <a class="wiki-ref" href="/mitarbeiter/org0063/">[ORG-0063]</a> erkannte im Wald eine unsichtbare &quot;Tür&quot;. Ausgerüstet mit einer grünen Blume der Gnome ging Jay durch diese Tür auf die &quot;andere Seite&quot;, um den Wyrm von innen heraus geschlossen zu halten.</p>
-<p>Das Atmen des Wyrms verlangsamte sich und verstummte.</p>
-<p>Status von Jay: Verloren/Aktiv. Status des Wyrms: Schlafend, solange Jay ihn halten kann.</p><footer class="wiki-footer">
+<p>Eindämmungsstatus: Schlafend unter prekärer Kontrolle.</p>
+<p>Primärgebiet: Brașov-Berge / südlicher Kaskadenrand der Transsilvanien-Lage.</p>
+<p>Bekannte Verbindungen: <a class="wiki-ref" href="/ae/ae1278/">AE-1278</a>, <a class="wiki-ref" href="/ae/ae1279/">AE-1279</a>, <a class="wiki-ref" href="/mitarbeiter/org0063/">ORG-0063</a>, <a class="wiki-ref" href="/mitarbeiter/org0076/">ORG-0076</a>, <a class="wiki-ref" href="/mitarbeiter/org0077/">ORG-0077</a>.</p>
+<h2 id="2-grundbefund">Grundbefund</h2>
+<p>AE-1280 wird als Fragment geführt, weil ORACLE keinen vollständigen Körper, kein vollständiges Bewusstsein und keine vollständige Ausdehnung nachweisen konnte. Alles Beobachtete spricht gegen eine einzelne Kreatur im zoologischen Sinn. Das Phänomen verhält sich eher wie ein erhaltener Teil von etwas Größerem, das in Berg, Wasser, Hitze und Schlafzustand verteilt ist.</p>
+<p>Die Bezeichnung &quot;Wyrm&quot; wurde nach Abgleich mit lokalen Aussagen und älteren europäischen Drachen-/Schlangenmotiven gewählt. Sie ist präziser als &quot;Drache&quot;, weil sie weniger Bilder erzwingt: keine Flügel, kein Hort, kein feuerspeiendes Tier. Wyrm bezeichnet hier ein langes, tiefes, erdnahes Etwas, das unterhalb menschlicher Infrastruktur liegt und Territorialität zeigt.</p>
+<h2 id="3-erscheinungsbild-ausma-e">Erscheinungsbild &amp; Ausmaße</h2>
+<p>Es gibt keine gesicherte Sichtung eines vollständigen Körpers. Feldberichte beschreiben stattdessen Wärme, Bodenbewegung, Wasserstörung und das Gefühl einer enormen Masse unterhalb der Wahrnehmung. Duro spürte eine Störung der Wasserströme im Gebirge, größer als jede bis dahin dokumentierte Entität.</p>
+<p>Die schwarzen Blüten von <a class="wiki-ref" href="/ae/ae1278/">AE-1278</a> markierten den Wyrm als heißen Punkt auf der Blumenkarte. Die Hitze war nicht atmosphärisch, sondern symbolisch und physisch zugleich: eine Stelle, an der das Gebiet &quot;wärmer wusste&quot;, dass darunter etwas lag.</p>
+<p>Wenn AE-1280 atmet, verändert sich der Raum. Das Atmen wurde nicht als Luftzug beschrieben, sondern als Pulsieren im Boden und als Druckveränderung im Wasser. Beim Einschläfern verlangsamte sich dieses Pulsieren, wurde leiser, verzweifelter und schließlich still.</p>
+<p>Von einem Kopf, Maul, Auge oder Panzer ist nichts gesichert. Aussagen über Schuppen, Klauen oder Flügel sind untersagt, solange keine Beobachtung vorliegt. Jede Illustration in internen Präsentationen muss abstrakt bleiben.</p>
+<h2 id="4-historische-und-folkloristische-vergleichslage">Historische und folkloristische Vergleichslage</h2>
+<p>Europäische Wyrm- und Lindwurm-Erzählungen beschreiben riesige Schlangen oder drachenartige Wesen, häufig erdgebunden, wasser- oder höhlennah, giftig, territorial und mit alten Landschaftswunden verbunden. Dieses Muster passt besser zu AE-1280 als das Bild eines klassischen Drachen.</p>
+<p>Rumänische Erzähltraditionen kennen daneben Balaur- und Zmeu-Motive: mächtige Drachen- oder Schlangenwesen, teils mit Wetter, Wasser, Bergen, Entführung und kosmischer Unordnung verknüpft. Dr. Popescus Erzählungen und lokale Hinweise deuten jedoch weniger auf einen Balaur als klar benannte Sagengestalt, sondern eher auf ein tieferes Wyrm-Motiv: etwas unter dem Berg, älter als der Name, nicht vollständig wach.</p>
+<p>Solomonari werden in einzelnen Randvermerken erwähnt, aber nur als Vergleich für Menschen oder Gruppen, denen Kontrolle über Wetter, Drachen oder Sturmwesen zugeschrieben wurde. ORACLE hat keinen Hinweis, dass Solomonari im aktuellen Ereignis aktiv waren. Der Begriff bleibt als folkloristischer Suchmarker erhalten, nicht als Befund.</p>
+<h2 id="5-verhalten-reaktionsmuster">Verhalten &amp; Reaktionsmuster</h2>
+<p>AE-1280 ist territorial. Es jagte das Team nicht im klassischen Sinn und bewegte sich nicht sichtbar durch den Wald. Trotzdem reagierte das Gebiet so, als sei eine Grenze berührt worden. Der Wyrm hört, bevor er sieht. Er nimmt Risse, Stimmen und Bewegungen im Kaskadenmedium wahr.</p>
+<p>Das Erwachen erfolgte nach dem Fadenschnitt zwischen Elena und <a class="wiki-ref" href="/ae/ae1279/">AE-1279</a>. AE-1280 reagierte nicht auf Elena als Person, sondern auf den Riss. Die Gnome beschrieben den Zustand danach als &quot;nicht schlafend, aber auch nicht wach&quot;. In diesem Zwischenzustand hört der Wyrm Dinge, ohne die Augen zu öffnen.</p>
+<p>Die Entität scheint nicht bösartig im menschlichen Sinn. Sie ist zu groß, um Feindseligkeit wie ein Tier oder Mensch auszudrücken. Die aktuelle Arbeitshypothese lautet: AE-1280 schützt oder behauptet einen Zustand. Wer diesen Zustand stört, wird bemerkt.</p>
+<h2 id="6-die-verbindung-zur-kaskade">Die Verbindung zur Kaskade</h2>
+<p>AE-1280 ist nicht mit <a class="wiki-ref" href="/ae/ae1279/">AE-1279</a> verbündet. <a class="wiki-ref" href="/ae/ae1278/">AE-1278</a> formulierte es als gemeinsames Wasser: Zwei Fische, die einander nicht kennen, aber dasselbe Meer atmen. Für ORACLE bedeutet das, dass Wyrm und Strigoi auf derselben tiefen Umgebungsebene reagieren.</p>
+<p><a class="wiki-ref" href="/ae/ae1279/">AE-1279</a> sammelt Stimmen, Gespräche und Signale. AE-1280 hört, was die Stimmen sammeln. Diese Aussage ist weder vollständig biologisch noch vollständig spirituell erklärbar. Sie reicht jedoch für eine harte Einsatzregel: In einer aktiven Kaskade kann Information selbst ein Weckreiz sein.</p>
+<p>Das Kappen von Elenas Verbindung rettete das Kind, erzeugte aber einen Riss, der AE-1280 weckte. Die Gnome hatten diesen Preis offenbar erwartet. Ihre Vorbereitung der grünen Blume, der schwarzen Erde und der Tür deutet auf lange Kenntnis des Problems hin.</p>
+<h2 id="7-eind-mmung-die-t-r-im-s-den">Eindämmung (Die Tür im Süden)</h2>
+<p>Konventionelle Eindämmung war unmöglich. Es gab kein Ziel für Waffen, keine klare Oberfläche und keinen sicheren Abstand. <a class="wiki-ref" href="/mitarbeiter/org0063/">ORG-0063</a> erkannte im Süden eine unsichtbare Tür. Diese Tür war für andere nicht sichtbar, aber durch <a class="wiki-ref" href="/ae/ae1278/">AE-1278</a> vorbereitet und durch die grüne Blume zugänglich.</p>
+<p>Vor dem Übergang legten die Gnome grüne Blume und schwarze Erde aus. Die schwarze Erde markierte einen Bereich, in dem der Wyrm nicht sieht. Die Gnome stellten sich anschließend in einer Linie nach Süden auf, Hand in Hand, und erzeugten einen gemeinsamen Fiepton.</p>
+<p><a class="wiki-ref" href="/mitarbeiter/org0063/">ORG-0063</a> nahm die grüne Blume vom ältesten Gnom und trat durch die Tür. Danach verlangsamte sich das Atmen des Wyrms. Gleichzeitig fielen Strigoi mort im Gelände. ORACLE wertet dies als erfolgreiche, aber unvollständige Einschläferung. Der Mechanismus wird nicht verstanden.</p>
+<p>Status von <a class="wiki-ref" href="/mitarbeiter/org0063/">ORG-0063</a>: verloren / aktiv. Er hält die Tür von innen geschlossen. Eine Rückholung ist derzeit nicht möglich, ohne AE-1280 erneut zu wecken.</p>
+<h2 id="8-tenno-vermerk-unsichere-vorl-ufer">Tenno-Vermerk: Unsichere Vorläufer</h2>
+<p><a class="wiki-ref" href="/mitarbeiter/org0047/">ORG-0047</a> kann in Altbeständen mehrere Hinweise finden, die nachträglich relevant wirken: Bergschlaf-Erzählungen, Dörfer mit ungewöhnlich warmen Quellen, Berichte über Vieh, das sich weigerte, bestimmte Waldlinien zu überschreiten, und Legenden über einen &quot;langen Leib&quot; unter Stein und Wasser.</p>
+<p>Diese Hinweise werden nicht als Beweise geführt. Sie sind Suchraster. Keiner der Vermerke nennt AE-1280, ORACLE oder die aktuelle Lichtung. Einige könnten auf gewöhnliche Erdrutsche, Methangas, Thermalquellen oder lokale Angsttraditionen zurückgehen.</p>
+<p>Bemerkenswert ist die Wiederholung eines Motivs: Nicht der Drache kommt zum Dorf, sondern das Dorf darf eine bestimmte Grenze nicht verletzen. Diese Struktur passt zur Territorialität von AE-1280.</p>
+<h2 id="9-eind-mmungsstatus-risiken">Eindämmungsstatus &amp; Risiken</h2>
+<p>Status: Schlafend, solange <a class="wiki-ref" href="/mitarbeiter/org0063/">ORG-0063</a> hält.</p>
+<p>Primärrisiko ist Wiedererwachen durch Störung des Kaskadenmediums. Dazu zählen erneute Strigoi-Aktivität, unsachgemäße Nutzung von <a class="wiki-ref" href="/ae/ae1278/">AE-1278</a>-Artefakten, schwere geologische Eingriffe, akustische oder bioelektrische Tests und jede Handlung, die die Tür im Süden adressiert.</p>
+<p>Sekundärrisiko ist falsche Gewissheit. AE-1280 wurde nicht besiegt. Es wurde geschlossen. Die Entität bleibt vorhanden, aufmerksamkeitsfähig und möglicherweise lernend. Jede Akte, die den Vorgang als Neutralisierung bezeichnet, ist zu korrigieren.</p>
+<h2 id="10-feldvermerk">Feldvermerk</h2>
+<p>Keine Drachenbilder. Keine Heldensprache. Jay hat kein Monster erschlagen. Er hält eine Tür zu.</p>
+<h2 id="11-direktion">Direktion</h2>
+<p>Solange <a class="wiki-ref" href="/mitarbeiter/org0063/">ORG-0063</a> hält, behandeln wir diesen Schlaf als geliehen. Nicht als gewonnen.</p><footer class="wiki-footer">
             <span>Datenbankkennung: AE-1280</span>
             <span>Kategorie: Anomale Entitäten</span>
             <span>Synchronisation: Oracle.DB</span>
@@ -138,7 +170,7 @@
       <span><b>ORACLE.DB</b> Meridian-Knoten online</span><span><b>AE-Register</b> statische Akten aktiv</span><span><b>Direktion</b> Sitzung EVOSS bestätigt</span><span><b>Hinweis</b> Nicht autorisierte Exporte werden protokolliert</span>
     </div></footer>
   </main>
-  <script src="/assets/js/login.js"></script>
+  <script src="/assets/js/page-load.js"></script>
   <script src="/assets/js/search.js"></script>
   <script src="/assets/js/redactions.js"></script>
 </body>
