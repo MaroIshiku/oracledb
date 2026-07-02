@@ -8,20 +8,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/oracle.css?v=20260702-2">
+  <link rel="stylesheet" href="/assets/css/oracle.css?v=20260702-3">
 </head>
 <body>
   <main class="app glitch">
     <header class="topbar">
       <a class="system-brand" href="/index/" aria-label="Oracle.DB Index">
-        <img src="/assets/img/oracle-logo.png?v=20260702-2" width="36" height="36" alt="">
+        <img src="/assets/img/oracle-logo.png?v=20260702-3" width="36" height="36" alt="">
         <span class="system-title">Oracle<span>.DB</span></span>
       </a>
       <div class="topmeta">Meridian-Knoten // Anomale Entitäten // AE-1275</div>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-controls="oracle-sidebar" aria-expanded="false">AKTEN</button>
       <div class="user-chip"><span class="pulse"></span> EVOSS // Direktorin</div>
     </header>
     <section class="main">
-      <aside class="sidebar">
+      <aside class="sidebar" id="oracle-sidebar" data-sidebar>
         <div class="nav-section">
           <div class="section-label">Archivzugriff</div>
           <input class="search" data-search-input placeholder="AKTE SUCHEN" value="AE-1275" aria-label="Suche">
@@ -60,6 +61,7 @@
             <div class="record-tags"><span class="tag">Entitäten</span><span class="tag">Schlafend (Brașov-Berge)</span></div>
           </a></div>
       </aside>
+      <button class="nav-overlay" type="button" data-nav-overlay aria-label="Aktennavigation schliessen"></button>
       <section class="viewer loading-dossier">
         <div class="route-loader" data-route-loader>
           <div class="loader-label">Akte wird entschluesselt</div>
@@ -164,8 +166,8 @@
       <span><b>ORACLE.DB</b> Meridian-Knoten online</span><span><b>AE-Register</b> statische Akten aktiv</span><span><b>Direktion</b> Sitzung EVOSS bestätigt</span><span><b>Hinweis</b> Nicht autorisierte Exporte werden protokolliert</span>
     </div></footer>
   </main>
-  <script src="/assets/js/page-load.js?v=20260702-2"></script>
-  <script src="/assets/js/search.js?v=20260702-2"></script>
-  <script src="/assets/js/redactions.js?v=20260702-2"></script>
+  <script src="/assets/js/page-load.js?v=20260702-3"></script>
+  <script src="/assets/js/search.js?v=20260702-3"></script>
+  <script src="/assets/js/redactions.js?v=20260702-3"></script>
 </body>
 </html>

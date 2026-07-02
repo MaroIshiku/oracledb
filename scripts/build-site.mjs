@@ -33,7 +33,7 @@ const categories = {
 };
 
 let routeById = new Map();
-const assetVersion = "20260702-2";
+const assetVersion = "20260702-3";
 
 const escapeHtml = (value = "") =>
   value
@@ -361,6 +361,7 @@ function topbar(meta = "Meridian-Knoten // Aktenindex // statische Routen aktiv"
         <span class="system-title">Oracle<span>.DB</span></span>
       </a>
       <div class="topmeta">${escapeHtml(meta)}</div>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-controls="oracle-sidebar" aria-expanded="false">AKTEN</button>
       <div class="user-chip"><span class="pulse"></span> EVOSS // Direktorin</div>
     </header>`;
 }
@@ -383,7 +384,7 @@ function sidebar(allArticles, active, activeKind = active?.kind) {
     })
     .join("\n");
 
-  return `<aside class="sidebar">
+  return `<aside class="sidebar" id="oracle-sidebar" data-sidebar>
         <div class="nav-section">
           <div class="section-label">Archivzugriff</div>
           <input class="search" data-search-input placeholder="AKTE SUCHEN" value="${escapeHtml(active?.id ?? "")}" aria-label="Suche">
@@ -393,6 +394,10 @@ function sidebar(allArticles, active, activeKind = active?.kind) {
         </div>
         <div class="record-list">${records}</div>
       </aside>`;
+}
+
+function navOverlay() {
+  return `<button class="nav-overlay" type="button" data-nav-overlay aria-label="Aktennavigation schliessen"></button>`;
 }
 
 function articleUrl(article) {
@@ -436,6 +441,7 @@ function renderArticlePage(article, allArticles, chronicle) {
     ${topbar(`Meridian-Knoten // ${categories[article.kind].title} // ${article.id}`)}
     <section class="main">
       ${sidebar(allArticles, article)}
+      ${navOverlay()}
       <section class="viewer loading-dossier">
         <div class="route-loader" data-route-loader>
           <div class="loader-label">Akte wird entschluesselt</div>
@@ -491,6 +497,7 @@ function renderIndex(allArticles, chronicle) {
     ${topbar("Meridian-Knoten // Aktenindex // statische Routen aktiv")}
     <section class="main">
       ${sidebar(allArticles, null, null)}
+      ${navOverlay()}
       <section class="viewer">
         <article class="dossier">
           <div class="classification"><span>Oracle.DB // Aktenindex</span><span>Freigabe: Stufe 5 - Direktion</span></div>
@@ -523,6 +530,7 @@ function renderCategoryPage(kind, allArticles, chronicle) {
     ${topbar(`Meridian-Knoten // ${category.title} // ${articles.length} Akten`)}
     <section class="main">
       ${sidebar(allArticles, null, kind)}
+      ${navOverlay()}
       <section class="viewer">
         <article class="dossier">
           <div class="classification"><span>${escapeHtml(category.title)} // Registeransicht</span><span>Freigabe: ${escapeHtml(category.clearance)}</span></div>
