@@ -1,0 +1,11 @@
+{
+  "name": "oracle-db-static",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "dev": "node scripts/build-site.mjs && npx http-server . -p 4173 -a 127.0.0.1 -c-1",
+    "serve": "npx http-server . -p 4173 -a 127.0.0.1 -c-1"
+  }
+}

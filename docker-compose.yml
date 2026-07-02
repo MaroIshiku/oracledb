@@ -1,0 +1,7 @@
+services:
+  oracle-db:
+    build: .
+    container_name: oracle-db
+    restart: unless-stopped
+    ports:
+      - "4173:80"

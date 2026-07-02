@@ -1,0 +1,158 @@
+[
+  {
+    "id": "ORG-0001",
+    "title": "Elena Voss",
+    "kind": "char",
+    "url": "/mitarbeiter/org0001/"
+  },
+  {
+    "id": "ORG-0003",
+    "title": "Max Mustermann",
+    "kind": "char",
+    "url": "/mitarbeiter/org0003/"
+  },
+  {
+    "id": "ORG-0005",
+    "title": "Nadeya ████████",
+    "kind": "char",
+    "url": "/mitarbeiter/org0005/"
+  },
+  {
+    "id": "ORG-0044",
+    "title": "Lotts",
+    "kind": "char",
+    "url": "/mitarbeiter/org0044/"
+  },
+  {
+    "id": "ORG-0047",
+    "title": "Maro Ishiku",
+    "kind": "char",
+    "url": "/mitarbeiter/org0047/"
+  },
+  {
+    "id": "ORG-0051",
+    "title": "[Redacted]",
+    "kind": "char",
+    "url": "/mitarbeiter/org0051/"
+  },
+  {
+    "id": "ORG-0057",
+    "title": "ORG-0057",
+    "kind": "char",
+    "url": "/mitarbeiter/org0057/"
+  },
+  {
+    "id": "ORG-0063",
+    "title": "Jay",
+    "kind": "char",
+    "url": "/mitarbeiter/org0063/"
+  },
+  {
+    "id": "ORG-0067",
+    "title": "Annina ████████",
+    "kind": "char",
+    "url": "/mitarbeiter/org0067/"
+  },
+  {
+    "id": "ORG-0069",
+    "title": "Junior",
+    "kind": "char",
+    "url": "/mitarbeiter/org0069/"
+  },
+  {
+    "id": "ORG-0072",
+    "title": "Fabian ████████",
+    "kind": "char",
+    "url": "/mitarbeiter/org0072/"
+  },
+  {
+    "id": "ORG-0076",
+    "title": "Duro",
+    "kind": "char",
+    "url": "/mitarbeiter/org0076/"
+  },
+  {
+    "id": "ORG-0077",
+    "title": "Dario",
+    "kind": "char",
+    "url": "/mitarbeiter/org0077/"
+  },
+  {
+    "id": "ORG-0078",
+    "title": "Mew",
+    "kind": "char",
+    "url": "/mitarbeiter/org0078/"
+  },
+  {
+    "id": "ORG-0088",
+    "title": "Nox",
+    "kind": "char",
+    "url": "/mitarbeiter/org0088/"
+  },
+  {
+    "id": "ORG-0112",
+    "title": "Jacob Vargas",
+    "kind": "char",
+    "url": "/mitarbeiter/org0112/"
+  },
+  {
+    "id": "AE-1252",
+    "title": "DER DRAUGE",
+    "kind": "ae",
+    "url": "/ae/ae1252/"
+  },
+  {
+    "id": "AE-1258",
+    "title": "DER BOO DAR",
+    "kind": "ae",
+    "url": "/ae/ae1258/"
+  },
+  {
+    "id": "AE-1275",
+    "title": "DER NACHZEHRER — MIREK",
+    "kind": "ae",
+    "url": "/ae/ae1275/"
+  },
+  {
+    "id": "AE-1278",
+    "title": "DIE GNOME",
+    "kind": "ae",
+    "url": "/ae/ae1278/"
+  },
+  {
+    "id": "AE-1279",
+    "title": "STRIGOI (Balkan-Kaskade)",
+    "kind": "ae",
+    "url": "/ae/ae1279/"
+  },
+  {
+    "id": "AE-1280",
+    "title": "WYRM-FRAGMENT",
+    "kind": "ae",
+    "url": "/ae/ae1280/"
+  },
+  {
+    "id": "ORACLE-BASIS-001",
+    "title": "THE MERIDIAN",
+    "kind": "dossier",
+    "url": "/dossier/basis001/"
+  },
+  {
+    "id": "ORACLE-BASIS-002",
+    "title": "EINRICHTUNG TARTAROS",
+    "kind": "dossier",
+    "url": "/dossier/basis002/"
+  },
+  {
+    "id": "ORACLE-FAZ-0051",
+    "title": "DER VANDURA",
+    "kind": "dossier",
+    "url": "/dossier/faz0051/"
+  },
+  {
+    "id": "ORACLE-INT-0001",
+    "title": "ORACLE",
+    "kind": "dossier",
+    "url": "/dossier/int0001/"
+  }
+]

@@ -1,0 +1,8 @@
+.git
+.github
+node_modules
+npm-debug.log*
+docker-build-local.ps1
+.DS_Store
+Thumbs.db
+
