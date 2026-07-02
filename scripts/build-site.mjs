@@ -33,6 +33,7 @@ const categories = {
 };
 
 let routeById = new Map();
+const assetVersion = "20260702-2";
 
 const escapeHtml = (value = "") =>
   value
@@ -349,14 +350,14 @@ function head(title) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/oracle.css">
+  <link rel="stylesheet" href="/assets/css/oracle.css?v=${assetVersion}">
 </head>`;
 }
 
 function topbar(meta = "Meridian-Knoten // Aktenindex // statische Routen aktiv") {
   return `<header class="topbar">
       <a class="system-brand" href="/index/" aria-label="Oracle.DB Index">
-        <img src="/assets/img/oracle-logo.png" alt="">
+        <img src="/assets/img/oracle-logo.png?v=${assetVersion}" width="36" height="36" alt="">
         <span class="system-title">Oracle<span>.DB</span></span>
       </a>
       <div class="topmeta">${escapeHtml(meta)}</div>
@@ -475,9 +476,9 @@ function renderArticlePage(article, allArticles, chronicle) {
     </section>
     ${ticker()}
   </main>
-  <script src="/assets/js/page-load.js"></script>
-  <script src="/assets/js/search.js"></script>
-  <script src="/assets/js/redactions.js"></script>
+  <script src="/assets/js/page-load.js?v=${assetVersion}"></script>
+  <script src="/assets/js/search.js?v=${assetVersion}"></script>
+  <script src="/assets/js/redactions.js?v=${assetVersion}"></script>
 </body>
 </html>`;
 }
@@ -507,8 +508,8 @@ function renderIndex(allArticles, chronicle) {
     </section>
     ${ticker()}
   </main>
-  <script src="/assets/js/search.js"></script>
-  <script src="/assets/js/redactions.js"></script>
+  <script src="/assets/js/search.js?v=${assetVersion}"></script>
+  <script src="/assets/js/redactions.js?v=${assetVersion}"></script>
 </body>
 </html>`;
 }
@@ -539,8 +540,8 @@ function renderCategoryPage(kind, allArticles, chronicle) {
     </section>
     ${ticker()}
   </main>
-  <script src="/assets/js/search.js"></script>
-  <script src="/assets/js/redactions.js"></script>
+  <script src="/assets/js/search.js?v=${assetVersion}"></script>
+  <script src="/assets/js/redactions.js?v=${assetVersion}"></script>
 </body>
 </html>`;
 }
@@ -549,7 +550,7 @@ function renderLoginPage() {
   return `${head("Oracle.DB // Anmeldung")}
 <body class="login-page">
   ${loginMarkup()}
-  <script src="/assets/js/login.js"></script>
+  <script src="/assets/js/login.js?v=${assetVersion}"></script>
 </body>
 </html>`;
 }

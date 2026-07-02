@@ -64,12 +64,10 @@ async function bootOracleLogin() {
 
   if (!login || !userNode || !passNode || !statusNode) return;
 
-  if (getStoredLoginDate() === todayKey) {
-    goToIndex();
-    return;
-  }
+  const hadSessionToday = getStoredLoginDate() === todayKey;
 
   await wait(420);
+  if (hadSessionToday) statusNode.textContent = "Tagessitzung gefunden";
   await typeInto(userNode, user, 105);
   statusNode.textContent = "Operator erkannt";
   await wait(360);
