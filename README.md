@@ -19,10 +19,24 @@ Danach: `http://127.0.0.1:4173/`
 ## Docker
 
 ```bash
-docker compose up -d --build
+docker compose pull
+docker compose up -d
 ```
 
-In ZimaOS/Nginx Proxy Manager den Container-Port `80` bzw. den gemappten Host-Port `4173` als Ziel verwenden.
+Das Compose-File nutzt standardmaessig:
+
+- Image: `ghcr.io/maroishiku/oracledb:latest`
+- Host-Port: `4173`
+- Container-Port: `80`
+- Datenpfad: `./data:/data`
+- optionaler nginx-Konfigurationspfad: `./config/nginx:/etc/nginx/conf.d/custom:ro`
+- Logo/Icon: `https://raw.githubusercontent.com/MaroIshiku/oracledb/main/assets/img/oracle-logo.png`
+
+In ZimaOS/Nginx Proxy Manager den gemappten Host-Port `4173` als Ziel verwenden.
+
+### ZimaOS / CasaOS
+
+`docker-compose.yml` enthaelt `x-casaos`-Metadaten fuer App-Name, Kategorie, Icon, Port und Web-UI. Beim Import sollte Oracle.DB direkt mit Logo und Weblink erscheinen.
 
 Hinweis unter Windows/OneDrive: Docker Desktop kann OneDrive-Dateiattribute manchmal nicht als Build-Kontext lesen. In dem Fall:
 

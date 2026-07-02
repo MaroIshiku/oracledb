@@ -1,7 +1,60 @@
 services:
   oracle-db:
-    build: .
-    container_name: oracle-db
+    image: ghcr.io/maroishiku/oracledb:latest
+    container_name: oracledb
+    hostname: oracledb
     restart: unless-stopped
+    pull_policy: always
     ports:
       - "4173:80"
+    environment:
+      TZ: Europe/Berlin
+    volumes:
+      - ./data:/data
+      - ./config/nginx:/etc/nginx/conf.d/custom:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ >/dev/null 2>&1 || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    labels:
+      org.opencontainers.image.title: "Oracle.DB"
+      org.opencontainers.image.description: "Statische Oracle.DB-Aktenoberflaeche fuer das ORACLE-Buchprojekt"
+      org.opencontainers.image.source: "https://github.com/MaroIshiku/oracledb"
+      org.opencontainers.image.url: "https://github.com/MaroIshiku/oracledb"
+      org.opencontainers.image.vendor: "MaroIshiku"
+      com.centurylinklabs.watchtower.enable: "true"
+      casaos.name: "Oracle.DB"
+      casaos.icon: "https://raw.githubusercontent.com/MaroIshiku/oracledb/main/assets/img/oracle-logo.png"
+      casaos.webui: "http://[HOST]:[PORT:4173]"
+    networks:
+      - oracle-db
+
+networks:
+  oracle-db:
+    name: oracle-db
+
+x-casaos:
+  architectures:
+    - amd64
+  main: oracle-db
+  author: MaroIshiku
+  developer: MaroIshiku
+  category: Books
+  tagline:
+    de_de: "Oracle.DB Aktenprogramm"
+    en_us: "Oracle.DB dossier interface"
+  description:
+    de_de: "Statische Oracle.DB-Aktenoberflaeche fuer Mitarbeiter, Anomale Entitaeten und interne Dossiers."
+    en_us: "Static Oracle.DB dossier interface for staff, anomalous entities and internal files."
+  icon: "https://raw.githubusercontent.com/MaroIshiku/oracledb/main/assets/img/oracle-logo.png"
+  screenshot_link:
+    - "https://raw.githubusercontent.com/MaroIshiku/oracledb/main/assets/img/oracle-logo.png"
+  port_map: "4173"
+  scheme: "http"
+  index: "/"
+  title:
+    de_de: "Oracle.DB"
+    en_us: "Oracle.DB"
+  store_app_id: "oracledb"
