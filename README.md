@@ -10,8 +10,12 @@ GitHub-/GHCR-Projekt vollständig aus dem Ordner `Web2` gebaut werden.
 npm run build
 ```
 
-Der Build verwendet ausschließlich `content/wiki-source.json` und die Assets in diesem Repository.
+Der Build verwendet ausschließlich `content/wiki-source.json`, `content/personnel-tags.json` und die Assets in diesem Repository.
 Er benötigt weder die übergeordnete CanonDB noch den Ordner `Wiki page/Data`.
+
+`personnel-tags.json` enthält die bewusst redaktionell getrennten Tagfelder der Personalakten. Der
+Build entfernt ihre früher zusammengeklebten Rohzeilen aus dem Fließtext und setzt die Tags als
+einzelne Pillen. Für neue oder geänderte Personalakten werden Tagfelder dort abschnittsweise gepflegt.
 
 ## Inhalte aus dem Gesamtprojekt aktualisieren
 
@@ -69,6 +73,7 @@ Das Script kopiert `Web2` in einen temporaeren lokalen Ordner und baut daraus `o
 - Verbindlicher Kanonstatus: `../../oracle_data/canon_state.json`
 - Stabile IDs und Datensatzpfade: `../../oracle_data/provenance/id_registry.json`
 - Selbständiger Web2-Snapshot: `content/wiki-source.json`
+- Redaktionelle Tagfelder: `content/personnel-tags.json`
 
 Die Textakten bleiben die ausführliche, menschenlesbare Artikelbasis. Der Canon-Snapshot liefert
 verbindliche aktuelle Status-, Orts- und ID-Daten sowie Prüfregeln; er ersetzt die Dossiertexte nicht.

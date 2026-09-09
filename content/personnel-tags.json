@@ -1,0 +1,297 @@
+{
+  "schema_version": "1.0.0",
+  "articles": {
+    "ORG-0001": {
+      "Psychisches Wesen": {
+        "source_line": "Ruhe: einschüchterndInformationskontrolle: absolutVertrauen: selektivGründerin",
+        "tags": ["Ruhe: einschüchternd", "Informationskontrolle: absolut", "Vertrauen: selektiv", "Gründerin"]
+      },
+      "Besonderheit": {
+        "source_line": "Olymp's Orakel — Vororg.Gründung: Zeit der GöttermythologieUrspr. Name: gesperrtErbe: bewusst getragenAusbruch: unvollst. klassifiziert",
+        "tags": ["Olymp's Orakel — Vororg.", "Gründung: Zeit der Göttermythologie", "Urspr. Name: gesperrt", "Erbe: bewusst getragen", "Ausbruch: unvollst. klassifiziert"]
+      },
+      "Primärfähigkeit": {
+        "source_line": "Keine übernatürl. FähigkeitResilienz: klinisch unerklärbarAE-Kontakt: überstanden",
+        "tags": ["Keine übernatürl. Fähigkeit", "Resilienz: klinisch unerklärbar", "AE-Kontakt: überstanden"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Nachfolge: ungeplantVertrauen: strukturell begrenztInformationsteilung: minimiert",
+        "tags": ["Nachfolge: ungeplant", "Vertrauen: strukturell begrenzt", "Informationsteilung: minimiert"]
+      },
+      "Vorgeschichte": {
+        "source_line": "Athen: HerkunftOlymp's Orakel — FamiliengeschichteGründung: Zeit der GöttermythologieMeridian: Wohnort de factoFamilienspaltung durch Ausbruch",
+        "tags": ["Athen: Herkunft", "Olymp's Orakel — Familiengeschichte", "Gründung: Zeit der Göttermythologie", "Meridian: Wohnort de facto", "Familienspaltung durch Ausbruch"]
+      }
+    },
+    "ORG-0003": {
+      "Psychisches Wesen": {
+        "source_line": "Entscheidungsgeschwindigkeit: extremSympathiefaktor: unerwartet hochDiktatorhaftGründungsmitglied",
+        "tags": ["Entscheidungsgeschwindigkeit: extrem", "Sympathiefaktor: unerwartet hoch", "Diktatorhaft", "Gründungsmitglied"]
+      },
+      "Besonderheit": {
+        "source_line": "Eigene Begriffswelt: aktivStille FührungskompetenzNicht steuerbar",
+        "tags": ["Eigene Begriffswelt: aktiv", "Stille Führungskompetenz", "Nicht steuerbar"]
+      },
+      "Primärfähigkeit": {
+        "source_line": "Panikwelle: Radius variabelAE-wirksam: bestätigtAuslöser: Gackern",
+        "tags": ["Panikwelle: Radius variabel", "AE-wirksam: bestätigt", "Auslöser: Gackern"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Auslöser: unkontrolliertSelbsteinschätzung: mangelhaftBefehlsempfang: situativ",
+        "tags": ["Auslöser: unkontrolliert", "Selbsteinschätzung: mangelhaft", "Befehlsempfang: situativ"]
+      },
+      "Vorgeschichte": {
+        "source_line": "Gründungsmitglied: ORG-0003Rekrutierungshergang: umstritten",
+        "tags": ["Gründungsmitglied: ORG-0003", "Rekrutierungshergang: umstritten"]
+      }
+    },
+    "ORG-0005": {
+      "Psychisches Wesen": {
+        "source_line": "UneinschätzbarUmgebungswirkung: AngstKommunikation: eingeschränkt",
+        "tags": ["Uneinschätzbar", "Umgebungswirkung: Angst", "Kommunikation: eingeschränkt"]
+      },
+      "Besonderheit": {
+        "source_line": "Siegelinstrument: Spieluhr 18. Jh.Kommunikationsfenster: begrenztGründungsmitglied: ORACLE",
+        "tags": ["Siegelinstrument: Spieluhr 18. Jh.", "Kommunikationsfenster: begrenzt", "Gründungsmitglied: ORACLE"]
+      },
+      "Primärfähigkeit": {
+        "source_line": "ORG-0112 — Das Phantom",
+        "tags": ["ORG-0112 — Das Phantom"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Albträume: wiederkehrendTeamfähigkeit: eingeschränkt",
+        "tags": ["Albträume: wiederkehrend", "Teamfähigkeit: eingeschränkt"]
+      },
+      "Vorgeschichte": {
+        "source_line": "ORG-0001 — Direktor VossORG-0003 — Max ChikinORG-0002 / ORG-0004Ursprung: ungeklärtMotiv: vmtl. Suche nach Tod/MörderGründungsmitglied: ORACLE",
+        "tags": ["ORG-0001 — Direktor Voss", "ORG-0003 — Max Chikin", "ORG-0002 / ORG-0004", "Ursprung: ungeklärt", "Motiv: vmtl. Suche nach Tod/Mörder", "Gründungsmitglied: ORACLE"]
+      }
+    },
+    "ORG-0044": {
+      "Psychisches Wesen": {
+        "tags": ["Fokus: extrem", "Korrekturreflex: unkontrolliert", "Unterforderung: kontraindiziert"]
+      },
+      "Besonderheit": {
+        "tags": ["Fotografisches Gedächtnis", "Fremderinnerungen: vorhanden", "Herkunft: ungeklärt"]
+      },
+      "Primärfähigkeit": {
+        "tags": ["Musteranalyse", "AE-Datenerfassung: primär", "Rekonstruktionspräzision: hoch"]
+      },
+      "Schwäche & Grenzen": {
+        "tags": ["Schlafmangel: chronisch", "Psychische Belastung: dauerhaft", "Erinnerungsverblassung: fehlend"]
+      },
+      "Vorgeschichte": {
+        "tags": ["Mehrfachstudium: ohne Abschluss", "ORACLE-Beitritt: selbstinitiiert", "4× AE-Ausbruch: anwesend", "Kausalität: ungeklärt"]
+      },
+      "Ereignisbericht: Die Archiv-Krise (K03)": {
+        "tags": ["Archivfund", "Schweigen: seit zwölf Stunden", "Zustand: ungeklärt"]
+      }
+    },
+    "ORG-0047": {
+      "Psychisches Wesen": {
+        "source_line": "Soziales RisikoTeamkonflikt: erhöhtORG-0112 — Das PhantomORG-0067 — Die Wirtin",
+        "tags": ["Soziales Risiko", "Teamkonflikt: erhöht", "ORG-0112 — Das Phantom", "ORG-0067 — Die Wirtin"]
+      },
+      "Besonderheit": {
+        "source_line": "JapanischDeutschAltgriechischSumerischElamisch+ weitere",
+        "tags": ["Japanisch", "Deutsch", "Altgriechisch", "Sumerisch", "Elamisch", "+ weitere"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Deckungsgefährdung: wiederholt",
+        "tags": ["Deckungsgefährdung: wiederholt"]
+      },
+      "Vorgeschichte": {
+        "source_line": "ORG-0112 — Das PhantomORG-0067 — Die WirtinWissensvermittlung aktiv",
+        "tags": ["ORG-0112 — Das Phantom", "ORG-0067 — Die Wirtin", "Wissensvermittlung aktiv"]
+      }
+    },
+    "ORG-0051": {
+      "Psychisches Wesen": {
+        "source_line": "Sozial: funktionalTrauma: aktiv, unbearbeitet",
+        "tags": ["Sozial: funktional", "Trauma: aktiv, unbearbeitet"]
+      },
+      "Besonderheit": {
+        "source_line": "Kein Führerschein: ideologischHöhenangst: absolutGlücksbringer: Schrumpfkopf — Herkunft unbekannt",
+        "tags": ["Kein Führerschein: ideologisch", "Höhenangst: absolut", "Glücksbringer: Schrumpfkopf — Herkunft unbekannt"]
+      },
+      "Primärfähigkeit": {
+        "source_line": "Kausaler Rebound: 10–15 Sek.Erweiterbar auf FahrzeugErstmanifestation: Feldeinsatz",
+        "tags": ["Kausaler Rebound: 10–15 Sek.", "Erweiterbar auf Fahrzeug", "Erstmanifestation: Feldeinsatz"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Erster Rebound: funktionsfähig, geschwächtZweiter Rebound: unmittelbare OhnmachtDritter Rebound: tödlichSolofreigabe: zurückgestellt",
+        "tags": ["Erster Rebound: funktionsfähig, geschwächt", "Zweiter Rebound: unmittelbare Ohnmacht", "Dritter Rebound: tödlich", "Solofreigabe: zurückgestellt"]
+      },
+      "Vorgeschichte": {
+        "source_line": "Erstmanifestation: FeldeinsatzOffiziell als tot geführtFahrzeug: verlassen aufgefunden",
+        "tags": ["Erstmanifestation: Feldeinsatz", "Offiziell als tot geführt", "Fahrzeug: verlassen aufgefunden"]
+      }
+    },
+    "ORG-0063": {
+      "Psychisches Wesen": {
+        "source_line": "Naivität: operativ riskantAblenkbarkeit: situativKrisenstabilität: auffällig hoch",
+        "tags": ["Naivität: operativ riskant", "Ablenkbarkeit: situativ", "Krisenstabilität: auffällig hoch"]
+      },
+      "Besonderheit": {
+        "source_line": "Identitätswissen: Herkunft ungeklärtInformationsquelle: nicht verifiziert",
+        "tags": ["Identitätswissen: Herkunft ungeklärt", "Informationsquelle: nicht verifiziert"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Körperliche Eignung: unzureichendAE-Sympathie: dokumentiert",
+        "tags": ["Körperliche Eignung: unzureichend", "AE-Sympathie: dokumentiert"]
+      },
+      "Vorgeschichte": {
+        "source_line": "Vorgeschichte: vollständig unbekanntIdentität: nicht verifizierbar",
+        "tags": ["Vorgeschichte: vollständig unbekannt", "Identität: nicht verifizierbar"]
+      }
+    },
+    "ORG-0067": {
+      "Psychisches Wesen": {
+        "source_line": "Reizbarkeit: erhöhtKooperationsbereitschaft: variabel",
+        "tags": ["Reizbarkeit: erhöht", "Kooperationsbereitschaft: variabel"]
+      },
+      "Besonderheit": {
+        "source_line": "Hochvermögendes UmfeldMehrfach psychiatrisch behandelt",
+        "tags": ["Hochvermögendes Umfeld", "Mehrfach psychiatrisch behandelt"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Fremdgefährdung: dokumentiert",
+        "tags": ["Fremdgefährdung: dokumentiert"]
+      },
+      "Vorgeschichte": {
+        "source_line": "Gegenseitige StabilisierungORG-0047 — Der DolmetscherORG-0112 — Das PhantomVerantwortungsstruktur: extern induziert",
+        "tags": ["Gegenseitige Stabilisierung", "ORG-0047 — Der Dolmetscher", "ORG-0112 — Das Phantom", "Verantwortungsstruktur: extern induziert"]
+      }
+    },
+    "ORG-0069": {
+      "Psychisches Wesen": {
+        "source_line": "Vorurteile: dokumentiertSozialer Konflikt: wiederholtWeltbild: nicht zeitgemäßPsychisches Alter: stark abweichend",
+        "tags": ["Vorurteile: dokumentiert", "Sozialer Konflikt: wiederholt", "Weltbild: nicht zeitgemäß", "Psychisches Alter: stark abweichend"]
+      },
+      "Besonderheit": {
+        "source_line": "Parallelwelt-Exposition: langfristigDigitales Systemdenken: immersivVorleben: ausgelöscht",
+        "tags": ["Parallelwelt-Exposition: langfristig", "Digitales Systemdenken: immersiv", "Vorleben: ausgelöscht"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Organische Probleme: überwältigendAnalyse: tageweise möglich",
+        "tags": ["Organische Probleme: überwältigend", "Analyse: tageweise möglich"]
+      },
+      "Vorgeschichte": {
+        "source_line": "Vorleben: nicht rekonstruierbarParallelwelt: LangzeitaufenthaltIdentität: fragmentiert",
+        "tags": ["Vorleben: nicht rekonstruierbar", "Parallelwelt: Langzeitaufenthalt", "Identität: fragmentiert"]
+      }
+    },
+    "ORG-0072": {
+      "Psychisches Wesen": {
+        "source_line": "Vertrauen: eingeschränktTransparenz: gering",
+        "tags": ["Vertrauen: eingeschränkt", "Transparenz: gering"]
+      },
+      "Besonderheit": {
+        "source_line": "Agentenausbildung: mehrfachDeckidentitäten: aktiv erfahrenLoyalität: nicht verifiziert",
+        "tags": ["Agentenausbildung: mehrfach", "Deckidentitäten: aktiv erfahren", "Loyalität: nicht verifiziert"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Extern getrackedExpositionsrisiko: hoch",
+        "tags": ["Extern getracked", "Expositionsrisiko: hoch"]
+      },
+      "Vorgeschichte": {
+        "source_line": "Mehrere Agenturen: ehem. aktivVollständige Akte: nicht verfügbarVorgeschichte: lückenhaft",
+        "tags": ["Mehrere Agenturen: ehem. aktiv", "Vollständige Akte: nicht verfügbar", "Vorgeschichte: lückenhaft"]
+      }
+    },
+    "ORG-0076": {
+      "Psychisches Wesen": {
+        "source_line": "Willensschwach ggü. RusalkaEhrlichkeit: ausgeprägtExterne Manipulation: resistent",
+        "tags": ["Willensschwach ggü. Rusalka", "Ehrlichkeit: ausgeprägt", "Externe Manipulation: resistent"]
+      },
+      "Besonderheit": {
+        "source_line": "Entität: Rusalka (slawisch)Zwei Bewusstseine: ein KörperEntität: aktiv und eigenwillig",
+        "tags": ["Entität: Rusalka (slawisch)", "Zwei Bewusstseine: ein Körper", "Entität: aktiv und eigenwillig"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Wasserbindung: kritischEntitätskontrolle: emotionsabhängigUnreines Wasser: unwirksam",
+        "tags": ["Wasserbindung: kritisch", "Entitätskontrolle: emotionsabhängig", "Unreines Wasser: unwirksam"]
+      },
+      "Vorgeschichte": {
+        "source_line": "Besessenheitsbeginn: nicht datierbarIdentität: nicht verifizierbarErinnerungen: kompromittiert",
+        "tags": ["Besessenheitsbeginn: nicht datierbar", "Identität: nicht verifizierbar", "Erinnerungen: kompromittiert"]
+      }
+    },
+    "ORG-0077": {
+      "Psychisches Wesen": {
+        "source_line": "Unzuverlässig: stabile SituationenZuverlässig: ChaosSchwer berechenbar",
+        "tags": ["Unzuverlässig: stabile Situationen", "Zuverlässig: Chaos", "Schwer berechenbar"]
+      },
+      "Besonderheit": {
+        "source_line": "Tiernähe: ausgeprägtMustererkennung: unkonventionellMMA-ErfahrungDunkelheit: bevorzugtes Umfeld",
+        "tags": ["Tiernähe: ausgeprägt", "Mustererkennung: unkonventionell", "MMA-Erfahrung", "Dunkelheit: bevorzugtes Umfeld"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Impulsivität: unkontrolliertStrukturierte Einsätze: kontraindiziert",
+        "tags": ["Impulsivität: unkontrolliert", "Strukturierte Einsätze: kontraindiziert"]
+      },
+      "Vorgeschichte": {
+        "source_line": "Herkunft: StraßeInstitutionsmisstrauen: ausgeprägtHintergrund: lückenhaft",
+        "tags": ["Herkunft: Straße", "Institutionsmisstrauen: ausgeprägt", "Hintergrund: lückenhaft"]
+      }
+    },
+    "ORG-0078": {
+      "Psychisches Wesen": {
+        "source_line": "Empathie: ausgeprägtPost-OP Distanz: klinisch beobachtet",
+        "tags": ["Empathie: ausgeprägt", "Post-OP Distanz: klinisch beobachtet"]
+      },
+      "Besonderheit": {
+        "source_line": "Anatomie: überdurchschnittlichAbschlüsse: nicht nachweisbarHerkunft: ungeklärt",
+        "tags": ["Anatomie: überdurchschnittlich", "Abschlüsse: nicht nachweisbar", "Herkunft: ungeklärt"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Ressourcenverlust: kumulativNeutralitätspflicht: nicht gewährleistet",
+        "tags": ["Ressourcenverlust: kumulativ", "Neutralitätspflicht: nicht gewährleistet"]
+      },
+      "Vorgeschichte": {
+        "source_line": "Ehemalige KrankenschwesterNachweis: nicht vorhandenIdentifikation: über Feldvorfall",
+        "tags": ["Ehemalige Krankenschwester", "Nachweis: nicht vorhanden", "Identifikation: über Feldvorfall"]
+      }
+    },
+    "ORG-0088": {
+      "Psychisches Wesen": {
+        "source_line": "Still: funktionalPräzision: ausgeprägtMisstrauen: strukturell",
+        "tags": ["Still: funktional", "Präzision: ausgeprägt", "Misstrauen: strukturell"]
+      },
+      "Besonderheit": {
+        "source_line": "Lautlose BewegungGrundrisserfassung: intuitivOrientierung: stark ausgeprägt",
+        "tags": ["Lautlose Bewegung", "Grundrisserfassung: intuitiv", "Orientierung: stark ausgeprägt"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Licht: Zugang blockiertNacheffekte: kumulativ",
+        "tags": ["Licht: Zugang blockiert", "Nacheffekte: kumulativ"]
+      },
+      "Vorgeschichte": {
+        "source_line": "Eigene Experimente: mit SchadenSelbstunterdrückung: DisziplinTechnik als AnkerRift-Fähigkeit: angeboren",
+        "tags": ["Eigene Experimente: mit Schaden", "Selbstunterdrückung: Disziplin", "Technik als Anker", "Rift-Fähigkeit: angeboren"]
+      }
+    },
+    "ORG-0112": {
+      "Psychisches Wesen": {
+        "source_line": "Trauma: schwerAutophobie: klinischEmotionale InstabilitätORG-0067 — Die WirtinORG-0047 — Der Dolmetscher",
+        "tags": ["Trauma: schwer", "Autophobie: klinisch", "Emotionale Instabilität", "ORG-0067 — Die Wirtin", "ORG-0047 — Der Dolmetscher"]
+      },
+      "Besonderheit": {
+        "source_line": "AE-Kontakt: AE-1252Kein ZivilstatusExklusiv ORACLE-intern",
+        "tags": ["AE-Kontakt: AE-1252", "Kein Zivilstatus", "Exklusiv ORACLE-intern"]
+      },
+      "Primärfähigkeit": {
+        "source_line": "ORG-0113 — Elias BruggerORG-0005 — Die Grenzgängerin",
+        "tags": ["ORG-0113 — Elias Brugger", "ORG-0005 — Die Grenzgängerin"]
+      },
+      "Schwäche & Grenzen": {
+        "source_line": "Kontrollverlust: möglichKommunikationsausfall: kritischORG-0113 — Elias Brugger",
+        "tags": ["Kontrollverlust: möglich", "Kommunikationsausfall: kritisch", "ORG-0113 — Elias Brugger"]
+      },
+      "Vorgeschichte": {
+        "source_line": "ORG-0113 — Elias BruggerTyp: DraugeAE-1252 — Typ DraugeGeborgen durch ORACLEORG-0067 — Die WirtinORG-0047 — Der Dolmetscher",
+        "tags": ["ORG-0113 — Elias Brugger", "Typ: Drauge", "AE-1252 — Typ Drauge", "Geborgen durch ORACLE", "ORG-0067 — Die Wirtin", "ORG-0047 — Der Dolmetscher"]
+      }
+    }
+  }
+}

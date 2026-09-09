@@ -5,7 +5,9 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const contentPath = path.join(root, "content", "wiki-source.json");
+const personnelTagsPath = path.join(root, "content", "personnel-tags.json");
 let contentSnapshot;
+let personnelTags;
 
 const categories = {
   char: {
@@ -29,7 +31,7 @@ const categories = {
 };
 
 let routeById = new Map();
-const assetVersion = "20260702-4";
+const assetVersion = "20260909-1";
 
 const escapeHtml = (value = "") =>
   value
@@ -75,8 +77,8 @@ function parseIdFromFilename(file) {
 }
 
 function parseTextArticle(file, kind, text) {
-  const lines = text.replace(/\r\n/g, "\n").split("\n").map((line) => line.trim());
-  const nonEmpty = lines.filter(Boolean);
+  const lines = text.replace(/\r\n?/g, "\n").split("\n");
+  const nonEmpty = lines.map((line) => line.trim()).filter(Boolean);
   const id = kind === "char" ? parseIdFromFilename(file) : cleanLine(nonEmpty[0] ?? parseIdFromFilename(file));
   const fileTitle = titleFromFilename(file);
 
@@ -94,7 +96,8 @@ function parseTextArticle(file, kind, text) {
   if (kind === "char") {
     const nameFromFile = fileTitle.replace(/^ORG-\d+\s*/i, "").trim();
     title = nameFromFile || id;
-    bodyStart = Math.max(0, nonEmpty.findIndex((line) => cleanLine(line).includes("Operatives Profil")) + 1);
+    const profileLine = lines.findIndex((line) => cleanLine(line).includes("Operatives Profil"));
+    bodyStart = profileLine >= 0 ? profileLine + 1 : 0;
     const identificationStart = nonEmpty.findIndex((line) => cleanLine(line).includes("IDENTIFIKATION"));
     const preamble = identificationStart > 0 ? nonEmpty.slice(0, identificationStart).map(cleanLine).filter(Boolean) : [];
     if (preamble.length && /^(⚠|Warn|Sonderstatus|Sicherheit|Loyalität)/i.test(preamble[0])) {
@@ -115,7 +118,16 @@ function parseTextArticle(file, kind, text) {
   } else {
     title = cleanLine(nonEmpty[1] ?? fileTitle.replace(new RegExp(`^${id}\\s*`, "i"), ""));
     subtitle = cleanLine(nonEmpty[2] ?? categories[kind].title);
-    bodyStart = 3;
+    let nonEmptySeen = 0;
+    bodyStart = lines.length;
+    for (let index = 0; index < lines.length; index += 1) {
+      if (!lines[index].trim()) continue;
+      nonEmptySeen += 1;
+      if (nonEmptySeen === 3) {
+        bodyStart = index + 1;
+        break;
+      }
+    }
 
     const headerLines = nonEmpty.slice(0, 14);
     const statusLine = headerLines.find((line) => /Status:/i.test(line)) ?? "";
@@ -132,8 +144,8 @@ function parseTextArticle(file, kind, text) {
       location;
   }
 
-  const rawBody = nonEmpty.slice(bodyStart).join("\n");
-  const sections = parseSections(rawBody, kind);
+  const rawBody = lines.slice(bodyStart).join("\n");
+  const sections = parseSections(rawBody, kind, id);
   const summary = firstParagraph(sections) || subtitle;
   const tags = makeTags({ kind, id, status, danger, role });
 
@@ -171,15 +183,79 @@ function extractIdentification(lines) {
   return data;
 }
 
-function parseSections(rawBody, kind) {
-  const lines = rawBody.split("\n").map(cleanLine).filter(Boolean);
+const cleanBodyLine = (line) => line.replace(/^\uFEFF/, "").replace(/\s+/g, " ").trim();
+
+function sectionTagConfig(articleId, sectionTitle) {
+  const articleConfig = personnelTags?.articles?.[articleId] ?? {};
+  const matchingTitle = Object.keys(articleConfig).find((title) => headingKey(title) === headingKey(sectionTitle));
+  return matchingTitle ? articleConfig[matchingTitle] : null;
+}
+
+function collapseParagraphs(rawLines) {
+  const paragraphs = [];
+  let current = [];
+  const flush = () => {
+    if (!current.length) return;
+    paragraphs.push(current.join(" ").replace(/\s+/g, " ").trim());
+    current = [];
+  };
+
+  for (const rawLine of rawLines) {
+    const line = cleanBodyLine(rawLine);
+    if (!line) {
+      flush();
+      continue;
+    }
+    const isStandaloneLine =
+      line.startsWith("//") ||
+      /^[—-]/.test(line) ||
+      /^\d+[.)]\s/.test(line) ||
+      /^[„“"]/.test(line) ||
+      /^(?:AE-\d+|Einrichtung .+)\s+—\s+/.test(line) ||
+      /^(Datenbankkennung|Eckdaten|Gefahrenprofil|Eskalationsszenarien|Anmerkung zur Datenvollständigkeit|Operative Anmerkung|Umgebungskontrolle & Versorgung|Sicherheitsprotokolle)\b/i.test(line);
+    if (isStandaloneLine) {
+      flush();
+      paragraphs.push(line);
+      continue;
+    }
+    current.push(line);
+  }
+  flush();
+  return paragraphs;
+}
+
+function finalizeSection(section, kind, articleId) {
+  const config = kind === "char" ? sectionTagConfig(articleId, section.title) : null;
+  const rawLines = [...section.rawLines];
+
+  if (config?.source_line) {
+    const sourceLine = cleanBodyLine(config.source_line);
+    const matches = rawLines
+      .map((line, index) => ({ line: cleanBodyLine(line), index }))
+      .filter((entry) => entry.line === sourceLine);
+    if (matches.length !== 1) {
+      throw new Error(`Tag source line for ${articleId} / ${section.title} was found ${matches.length} times.`);
+    }
+    rawLines.splice(matches[0].index, 1);
+  }
+
+  return {
+    title: section.title,
+    body: collapseParagraphs(rawLines),
+    tags: config?.tags ?? [],
+  };
+}
+
+function parseSections(rawBody, kind, articleId) {
+  const rawLines = rawBody.split("\n");
+  const lines = rawLines.map(cleanLine).filter(Boolean);
   const expectedHeadings = lines
     .map((line) => line.match(/^\d+\s*[—-]\s*(.+)$/)?.[1])
     .filter(Boolean)
     .map(cleanLine);
   const expectedKeys = expectedHeadings.map(headingKey);
   const sections = [];
-  let current = { title: kind === "char" ? "Operatives Profil" : "Überblick", body: [] };
+  let current = { title: kind === "char" ? "Operatives Profil" : "Überblick", rawLines: [] };
 
   const headingHints = new Set([
     "Überblick",
@@ -211,28 +287,48 @@ function parseSections(rawBody, kind) {
     "Ethische Grundsätze",
   ]);
 
-  for (const line of lines) {
+  const hasContent = (section) => section.rawLines.some((line) => cleanBodyLine(line));
+  const pushCurrent = () => {
+    const finalized = finalizeSection(current, kind, articleId);
+    if (finalized.body.length || finalized.tags.length) sections.push(finalized);
+  };
+
+  for (const rawLine of rawLines) {
+    const line = cleanLine(rawLine);
+    if (!line) {
+      current.rawLines.push("");
+      continue;
+    }
     if (line.startsWith("// INHALT") || /^\d+\s*[—-]/.test(line)) continue;
     if (/^Dieser Artikel ist Teil der internen ORACLE-Datenbank/i.test(line)) continue;
     const isCommentHeading = /^\/\/\s*(Auszug|Ereignis-Update|Medizinischer Zusatz|Feldvermerk|Feldwarnung|Direktion)/i.test(line);
     const normalized = line.replace(/^\/\/\s*/, "").trim();
     const normalizedKey = headingKey(normalized);
     const headingLikeLength = normalized.length <= 90;
-    const isExpectedHeading = headingLikeLength && expectedKeys.some((key) => key === normalizedKey || key.startsWith(normalizedKey) || normalizedKey.startsWith(key));
-    const isLevelHeading = /^(Ebene\s+\d|Tieferliegende Schächte)/i.test(normalized);
-    const isHeading = headingHints.has(normalized) || isExpectedHeading || isCommentHeading || isLevelHeading;
+    const isExpectedHeading = headingLikeLength && expectedKeys.includes(normalizedKey);
+    const isLevelHeading = /^(Ebene\s+\d+\s*[—-]|Tieferliegende Schächte\s*[—-])/i.test(normalized);
+    const isEventHeading = /^Ereignisbericht\s*:/i.test(normalized);
+    const hasBulletPrefix = /^\s*[—-]/.test(rawLine);
+    const isHeading = !hasBulletPrefix && (headingHints.has(normalized) || isExpectedHeading || isCommentHeading || isLevelHeading || isEventHeading);
 
-    if (isHeading && current.body.length) {
-      sections.push(current);
-      current = { title: normalized, body: [] };
+    if (isHeading && hasContent(current)) {
+      pushCurrent();
+      current = { title: normalized, rawLines: [] };
     } else if (isHeading) {
       current.title = normalized;
     } else {
-      current.body.push(line);
+      current.rawLines.push(rawLine);
     }
   }
 
-  if (current.body.length) sections.push(current);
+  if (hasContent(current) || sectionTagConfig(articleId, current.title)) pushCurrent();
+
+  if (kind === "char") {
+    const configuredTitles = Object.keys(personnelTags?.articles?.[articleId] ?? {});
+    const renderedKeys = new Set(sections.map((section) => headingKey(section.title)));
+    const missing = configuredTitles.filter((title) => !renderedKeys.has(headingKey(title)));
+    if (missing.length) throw new Error(`Configured tag sections missing for ${articleId}: ${missing.join(", ")}`);
+  }
   return sections;
 }
 
@@ -308,44 +404,12 @@ function renderNotice(article) {
           </aside>`;
 }
 
-function splitTraitLine(line, isSectionTail) {
-  const normalized = line.replace(/\s+/g, " ").trim();
-  if (/[.!?]["”']?$/.test(normalized)) return null;
-  const hasColon = normalized.includes(":");
-  if (!hasColon && !isSectionTail) return null;
-
-  // The source dossiers preserve former adjacent HTML tags without separators.
-  // A lower-case/digit-to-capital transition therefore marks the next pill.
-  const separated = normalized
-    .replace(/([^\s])((?:ORG|AE)-\d{4}\b)/g, "$1\u0000$2")
-    .replace(/([^\s])(\+\s*\p{L})/gu, "$1\u0000$2");
-  const tokens = separated
-    .split(/\u0000|(?<=[\p{Ll}\p{N}.)])(?=[\p{Lu}][\p{L}\p{N}])/gu)
-    .map((token) => token.trim())
-    .filter(Boolean);
-  const hasJoinedPills = tokens.length > 1;
-  const isCompactTail = isSectionTail
-    && hasColon
-    && normalized.length <= 76
-    && /^[^:]{2,40}:\s*\S/.test(normalized);
-  const isJoinedTail = isSectionTail && tokens.length > 1 && normalized.length <= 100;
-
-  if (!(hasJoinedPills && hasColon) && !isCompactTail && !isJoinedTail) return null;
-  if (tokens.some((token) => token.length > 100)) return null;
-  return tokens;
-}
-
 function renderTraitPills(tokens, article) {
-  const pills = tokens.map((token) => {
-    const separator = token.indexOf(":");
-    if (separator < 0) {
-      return `<span class="trait-pill trait-pill-standalone">${renderInline(token, article)}</span>`;
-    }
-    const key = token.slice(0, separator).trim();
-    const value = token.slice(separator + 1).trim();
-    return `<span class="trait-pill"><span class="trait-key">${renderInline(key, article)}</span><span class="trait-value">${renderInline(value || "—", article)}</span></span>`;
-  }).join("");
-  return `<div class="trait-pills" aria-label="Aktenmerkmale">${pills}</div>`;
+  const pills = tokens
+    .map((token) => token.replace(/:\s*/g, " ").replace(/\s+/g, " ").trim())
+    .map((token) => `<span class="trait-pill">${renderInline(token, article)}</span>`)
+    .join("");
+  return `<div class="trait-pills" aria-label="Akten-Tags">${pills}</div>`;
 }
 
 function displayedStatus(article) {
@@ -371,24 +435,21 @@ function renderWikiFooter(article) {
 function renderSection(section, index, article) {
   const specialVoss = /direktor voss/i.test(section.title);
   const body = section.body
-    .map((line, lineIndex) => {
+    .map((line) => {
       if (line.startsWith("//")) {
         return `<div class="protocol"><b>Interner Vermerk</b>${renderInline(line.replace(/^\/\/\s*/, ""), article)}</div>`;
       }
       if (/^(⚠|Warn|Sonderstatus)/i.test(line)) {
         return `<div class="note"><b>Warnhinweis</b>${renderInline(line, article)}</div>`;
       }
-      const traits = article.kind === "char"
-        ? splitTraitLine(line, lineIndex === section.body.length - 1)
-        : null;
-      if (traits) return renderTraitPills(traits, article);
       return `<p>${renderInline(line, article)}</p>`;
     })
     .join("\n");
   if (specialVoss) {
     return `<section class="voss-block" id="${sectionId(section, index)}"><div class="voss-lbl">// ${escapeHtml(section.title)}</div><div class="voss-cnt">${section.body.map((line) => renderInline(line, article)).join("<br>")}</div></section>`;
   }
-  return `<h2 id="${sectionId(section, index)}">${escapeHtml(section.title)}</h2>\n${body}`;
+  const tags = section.tags?.length ? renderTraitPills(section.tags, article) : "";
+  return `<h2 id="${sectionId(section, index)}">${escapeHtml(section.title)}</h2>\n${body}${tags}`;
 }
 
 function loginMarkup() {
@@ -676,6 +737,10 @@ async function readArticles() {
   const registeredIds = new Set(contentSnapshot.registered_ids ?? []);
   const invalidEntityIds = articles.filter((article) => ["char", "ae"].includes(article.kind) && !registeredIds.has(article.id)).map((article) => article.id);
   if (invalidEntityIds.length) throw new Error(`Articles use unregistered Canon IDs: ${invalidEntityIds.join(", ")}`);
+  const unconfiguredPersonnel = articles
+    .filter((article) => article.kind === "char" && !Object.hasOwn(personnelTags?.articles ?? {}, article.id))
+    .map((article) => article.id);
+  if (unconfiguredPersonnel.length) throw new Error(`Personnel dossiers without explicit tag configuration: ${unconfiguredPersonnel.join(", ")}`);
   await assignImages(articles);
   return articles;
 }
@@ -691,7 +756,10 @@ async function removeGeneratedRoutes() {
 }
 
 async function main() {
-  contentSnapshot = JSON.parse(await fs.readFile(contentPath, "utf8"));
+  [contentSnapshot, personnelTags] = await Promise.all([
+    fs.readFile(contentPath, "utf8").then(JSON.parse),
+    fs.readFile(personnelTagsPath, "utf8").then(JSON.parse),
+  ]);
   const articles = await readArticles();
   routeById = buildRouteMap(articles);
   const chronicle = await readChronicleSummary();

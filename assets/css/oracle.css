@@ -686,8 +686,8 @@ h1 {
 .trait-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
-  margin: 2px 0 16px;
+  gap: 6px;
+  margin: 4px 0 18px;
 }
 
 .trait-pill {
@@ -695,36 +695,23 @@ h1 {
   align-items: center;
   min-width: 0;
   max-width: 100%;
-  border: 1px solid rgba(117, 214, 200, .28);
+  border: 1px solid rgba(117, 214, 200, .48);
   border-radius: 999px;
-  background: rgba(117, 214, 200, .055);
-  padding: 5px 10px;
-  color: #d6e0e8;
+  background: rgba(117, 214, 200, .11);
+  box-shadow: inset 0 0 10px rgba(117, 214, 200, .035);
+  padding: 4px 10px 3px;
+  color: var(--cyan);
   font-family: "Share Tech Mono", monospace;
   font-size: 9px;
   line-height: 1.35;
+  letter-spacing: .65px;
+  text-transform: uppercase;
   overflow-wrap: anywhere;
 }
 
-.trait-key {
-  margin-right: 6px;
-  border-right: 1px solid rgba(117, 214, 200, .22);
-  padding-right: 6px;
-  color: var(--cyan);
-  letter-spacing: .8px;
-  text-transform: uppercase;
-}
-
-.trait-value {
-  color: #c5d1dc;
-}
-
-.trait-pill-standalone {
-  border-color: rgba(135, 152, 168, .25);
-  background: rgba(135, 152, 168, .045);
-  color: var(--muted);
-  letter-spacing: .7px;
-  text-transform: uppercase;
+.trait-pill .wiki-ref {
+  color: inherit;
+  border-bottom-color: rgba(117, 214, 200, .36);
 }
 
 .article strong { color: #fff; font-weight: 600; }
