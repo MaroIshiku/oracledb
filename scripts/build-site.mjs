@@ -310,22 +310,27 @@ function renderNotice(article) {
 
 function splitTraitLine(line, isSectionTail) {
   const normalized = line.replace(/\s+/g, " ").trim();
-  if (!normalized.includes(":")) return null;
   if (/[.!?]["”']?$/.test(normalized)) return null;
+  const hasColon = normalized.includes(":");
+  if (!hasColon && !isSectionTail) return null;
 
   // The source dossiers preserve former adjacent HTML tags without separators.
   // A lower-case/digit-to-capital transition therefore marks the next pill.
-  const separated = normalized.replace(/([^\s])((?:ORG|AE)-\d{4}\b)/g, "$1\u0000$2");
+  const separated = normalized
+    .replace(/([^\s])((?:ORG|AE)-\d{4}\b)/g, "$1\u0000$2")
+    .replace(/([^\s])(\+\s*\p{L})/gu, "$1\u0000$2");
   const tokens = separated
     .split(/\u0000|(?<=[\p{Ll}\p{N}.)])(?=[\p{Lu}][\p{L}\p{N}])/gu)
     .map((token) => token.trim())
     .filter(Boolean);
   const hasJoinedPills = tokens.length > 1;
   const isCompactTail = isSectionTail
+    && hasColon
     && normalized.length <= 76
     && /^[^:]{2,40}:\s*\S/.test(normalized);
+  const isJoinedTail = isSectionTail && tokens.length > 1 && normalized.length <= 100;
 
-  if (!hasJoinedPills && !isCompactTail) return null;
+  if (!(hasJoinedPills && hasColon) && !isCompactTail && !isJoinedTail) return null;
   if (tokens.some((token) => token.length > 100)) return null;
   return tokens;
 }
