@@ -1,12 +1,29 @@
 # Oracle.DB
 
-Statische Oracle.DB-Wiki fuer das Buchprojekt. Die Seiten werden aus den Akten unter `../Data` generiert und koennen danach direkt per nginx ausgeliefert werden.
+Statische Oracle.DB-Wiki fuer das Buchprojekt. Ausführliche, menschenlesbare Akten und verbindliche
+Kanon-Kurzdaten werden in einem eingecheckten Inhaltssnapshot zusammengeführt. Dadurch kann das
+GitHub-/GHCR-Projekt vollständig aus dem Ordner `Web2` gebaut werden.
 
 ## Lokal bauen
 
 ```bash
 npm run build
 ```
+
+Der Build verwendet ausschließlich `content/wiki-source.json` und die Assets in diesem Repository.
+Er benötigt weder die übergeordnete CanonDB noch den Ordner `Wiki page/Data`.
+
+## Inhalte aus dem Gesamtprojekt aktualisieren
+
+Nach Änderungen an Akten oder CanonDB im vollständigen ORACLE-Arbeitsordner:
+
+```bash
+npm run refresh
+```
+
+`refresh` synchronisiert die benötigten Akten, Canon-Kurzstände und Bilder nach `Web2` und erzeugt
+anschließend alle statischen Seiten neu. Der aktualisierte Inhaltssnapshot wird zusammen mit Web2
+eingecheckt, damit GitHub Actions und GHCR reproduzierbar bauen können.
 
 ## Lokal ansehen
 
@@ -46,9 +63,12 @@ Hinweis unter Windows/OneDrive: Docker Desktop kann OneDrive-Dateiattribute manc
 
 Das Script kopiert `Web2` in einen temporaeren lokalen Ordner und baut daraus `oracle-db-static:latest`. Ein normaler GitHub-Checkout auf ZimaOS ist davon nicht betroffen.
 
-## Quellen
+## Quellen im Gesamtprojekt
 
-- Mitarbeiter: `../Data/Char`
-- Anomale Entitaeten: `../Data/AEs`
-- Dossiers: `../Data/Knowledge`
-- Chroniksignal: `../../Masterchronicle.yaml`
+- Menschenlesbare Akten: `../Data/Char`, `../Data/AEs`, `../Data/Knowledge`
+- Verbindlicher Kanonstatus: `../../oracle_data/canon_state.json`
+- Stabile IDs und Datensatzpfade: `../../oracle_data/provenance/id_registry.json`
+- Selbständiger Web2-Snapshot: `content/wiki-source.json`
+
+Die Textakten bleiben die ausführliche, menschenlesbare Artikelbasis. Der Canon-Snapshot liefert
+verbindliche aktuelle Status-, Orts- und ID-Daten sowie Prüfregeln; er ersetzt die Dossiertexte nicht.

@@ -4,30 +4,26 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const repo = path.resolve(root, "..", "..");
-const dataRoot = path.join(repo, "Wiki Page", "Data");
-const chroniclePath = path.join(repo, "Masterchronicle.yaml");
+const contentPath = path.join(root, "content", "wiki-source.json");
+let contentSnapshot;
 
 const categories = {
   char: {
     title: "Mitarbeiter",
     tab: "Personal",
     route: "mitarbeiter",
-    source: path.join(dataRoot, "Char"),
     clearance: "Stufe 4 - Personalakten",
   },
   ae: {
     title: "Anomale Entitäten",
     tab: "Entitäten",
     route: "ae",
-    source: path.join(dataRoot, "AEs"),
     clearance: "Stufe 2 - Feldzugang",
   },
   dossier: {
     title: "Dossiers",
     tab: "Dossiers",
     route: "dossier",
-    source: path.join(dataRoot, "Knowledge"),
     clearance: "Stufe 3 - Archivzugang",
   },
 };
@@ -93,16 +89,22 @@ function parseTextArticle(file, kind, text) {
   let role = "nicht vermerkt";
   let codename = "";
   let identification = {};
+  let notice = null;
 
   if (kind === "char") {
     const nameFromFile = fileTitle.replace(/^ORG-\d+\s*/i, "").trim();
     title = nameFromFile || id;
     bodyStart = Math.max(0, nonEmpty.findIndex((line) => cleanLine(line).includes("Operatives Profil")) + 1);
+    const identificationStart = nonEmpty.findIndex((line) => cleanLine(line).includes("IDENTIFIKATION"));
+    const preamble = identificationStart > 0 ? nonEmpty.slice(0, identificationStart).map(cleanLine).filter(Boolean) : [];
+    if (preamble.length && /^(⚠|Warn|Sonderstatus|Sicherheit|Loyalität)/i.test(preamble[0])) {
+      notice = { title: preamble[0].replace(/^⚠+\s*/, ""), body: preamble.slice(1).join(" ") };
+    }
 
     for (let index = 0; index < nonEmpty.length; index += 1) {
       const current = cleanLine(nonEmpty[index]);
       const next = cleanLine(nonEmpty[index + 1] ?? "");
-      if (current === "Bürgerlicher Name" && next) title = next;
+      if (current === "Bürgerlicher Name" && next && !/^(—|-|\[?redacted\]?)$/i.test(next)) title = next;
       if (current === "Codename" && next) codename = next;
       if (current === "Rolle" && next) role = next;
       if (current === "Nationalität" && next) location = next;
@@ -149,14 +151,15 @@ function parseTextArticle(file, kind, text) {
     codename,
     tags,
     identification,
+    notice,
     sections,
-    sourceFile: path.relative(repo, file),
+    sourceFile: file,
     image: null,
   };
 }
 
 function extractIdentification(lines) {
-  const labels = new Set(["Bürgerlicher Name", "Rufname", "Codename", "Alter", "Nationalität", "Rolle"]);
+  const labels = new Set(["Bürgerlicher Name", "Eingetragener Name", "Rufname", "Codename", "Alter", "Nationalität", "Rolle"]);
   const data = {};
   for (let index = 0; index < lines.length; index += 1) {
     const label = cleanLine(lines[index]);
@@ -216,7 +219,8 @@ function parseSections(rawBody, kind) {
     const normalizedKey = headingKey(normalized);
     const headingLikeLength = normalized.length <= 90;
     const isExpectedHeading = headingLikeLength && expectedKeys.some((key) => key === normalizedKey || key.startsWith(normalizedKey) || normalizedKey.startsWith(key));
-    const isHeading = headingHints.has(normalized) || isExpectedHeading || isCommentHeading;
+    const isLevelHeading = /^(Ebene\s+\d|Tieferliegende Schächte)/i.test(normalized);
+    const isHeading = headingHints.has(normalized) || isExpectedHeading || isCommentHeading || isLevelHeading;
 
     if (isHeading && current.body.length) {
       sections.push(current);
@@ -282,10 +286,11 @@ function renderIdentification(article) {
   if (article.kind !== "char") return "";
   const id = article.identification ?? {};
   const cell = (label, value, extra = "") => `<div class="id-cell"><div class="id-lbl">${label}</div><div class="id-val ${extra}">${renderInline(value || "nicht vermerkt", article)}</div></div>`;
+  const registeredName = id["Eingetragener Name"];
   return `<section class="identity-block" aria-label="Identifikation">
             <div class="id-sbar">// - // IDENTIFIKATION // - //</div>
             <div class="id-grid">
-              ${cell("Buergerlicher Name", id["Bürgerlicher Name"])}
+              ${cell(registeredName ? "Eingetragener Name" : "Buergerlicher Name", registeredName || id["Bürgerlicher Name"])}
               ${cell("Rufname", id.Rufname)}
               ${cell("Codename", id.Codename, "cn")}
               ${cell("Alter", id.Alter)}
@@ -293,6 +298,25 @@ function renderIdentification(article) {
               ${cell("Rolle", id.Rolle)}
             </div>
           </section>`;
+}
+
+function renderNotice(article) {
+  if (!article.notice) return "";
+  return `<aside class="dossier-warning" aria-label="Aktenwarnung">
+            <div class="dossier-warning-title">⚠ ${escapeHtml(article.notice.title)}</div>
+            <div class="dossier-warning-body">${renderInline(article.notice.body || "Zusätzliche Freigabe erforderlich.", article)}</div>
+          </aside>`;
+}
+
+function displayedStatus(article) {
+  return article.canon?.status_label || article.status;
+}
+
+function displayedLocation(article) {
+  if (!article.canon?.location_id) return article.location || article.role || categories[article.kind].title;
+  return article.canon.location_label && article.canon.location_label !== article.canon.location_id
+    ? `${article.canon.location_label} (${article.canon.location_id})`
+    : article.canon.location_id;
 }
 
 function renderWikiFooter(article) {
@@ -405,9 +429,13 @@ function articleUrl(article) {
 }
 
 function signalPanel(article, chronicle) {
+  const canonSignal = article?.canon
+    ? `${article.canon.status_label}${article.canon.location_id ? `; Ort: ${article.canon.location_label || article.canon.location_id}` : ""}. Quelle: ${article.canon.record_path}.`
+    : "Keine einzelne Akte ausgewählt.";
   return `<aside class="rightbar">
         <div class="section-label">Systemsignale</div>
         <div class="signal-card"><div class="signal-title">Chronik-Spiegel</div><div class="signal-body">${escapeHtml(chronicle)}</div></div>
+        <div class="signal-card"><div class="signal-title">Aktueller Kanon</div><div class="signal-body">${escapeHtml(canonSignal)}</div></div>
         <div class="signal-card"><div class="signal-title">Archivstatus</div><div class="signal-body">${escapeHtml(article ? `Akte ${article.id} im lokalen Oracle.DB-Knoten verfügbar.` : "Register im lokalen Oracle.DB-Knoten verfügbar.")}</div></div>
         <div class="signal-card"><div class="signal-title">Zugriffsstufe</div><div class="signal-body">${escapeHtml(article ? categories[article.kind].clearance : "Stufe 5 - Direktion")}</div></div>
       </aside>`;
@@ -453,6 +481,7 @@ function renderArticlePage(article, allArticles, chronicle) {
             <span>Nur interner Gebrauch // Weitergabe untersagt</span>
             <span>Freigabe: ${escapeHtml(categories[article.kind].clearance)}</span>
           </div>
+${renderNotice(article)}
           <header class="hero">
             <div class="eyebrow">${escapeHtml(categories[article.kind].title)} // ${escapeHtml(article.subtitle)}</div>
             <h1>${escapeHtml(article.id)}<br>${renderInline(article.title, article)}</h1>
@@ -462,16 +491,16 @@ function renderArticlePage(article, allArticles, chronicle) {
           ${renderIdentification(article)}
           <section class="meta-grid" aria-label="Kenndaten">
             <div class="meta-cell"><div class="meta-label">Kennung</div><div class="meta-value">${escapeHtml(article.id)}</div></div>
-            <div class="meta-cell"><div class="meta-label">Status</div><div class="meta-value">${escapeHtml(article.status)}</div></div>
+            <div class="meta-cell"><div class="meta-label">Status</div><div class="meta-value">${escapeHtml(displayedStatus(article))}</div></div>
             <div class="meta-cell"><div class="meta-label">Klasse</div><div class="meta-value">${escapeHtml(article.danger)}</div></div>
-            <div class="meta-cell"><div class="meta-label">Zuordnung</div><div class="meta-value">${escapeHtml(article.location || article.role || categories[article.kind].title)}</div></div>
+            <div class="meta-cell"><div class="meta-label">Zuordnung</div><div class="meta-value">${escapeHtml(displayedLocation(article))}</div></div>
           </section>
           <section class="content-grid">
             <div class="article">${article.sections.map((section, index) => renderSection(section, index, article)).join("\n")}${renderWikiFooter(article)}</div>
             <aside class="infobox">
               ${renderMedia(article)}
               <div class="info-row"><div class="info-k">Typ</div><div class="info-v">${escapeHtml(categories[article.kind].title)}</div></div>
-              <div class="info-row"><div class="info-k">Status</div><div class="info-v">${escapeHtml(article.status)}</div></div>
+              <div class="info-row"><div class="info-k">Status</div><div class="info-v">${escapeHtml(displayedStatus(article))}</div></div>
               <div class="info-row"><div class="info-k">Klasse</div><div class="info-v">${escapeHtml(article.danger)}</div></div>
               <div class="info-row"><div class="info-k">Kennung</div><div class="info-v">${escapeHtml(article.id)}</div></div>
             </aside>
@@ -572,22 +601,18 @@ async function writeFile(file, content) {
   await fs.writeFile(file, content, "utf8");
 }
 
-async function copyImages(allArticles) {
-  const imageOut = path.join(root, "assets", "img");
-  await ensureDir(imageOut);
-  for (const [kind, category] of Object.entries(categories)) {
-    const files = await fs.readdir(category.source);
-    const images = files.filter(isImage);
-    for (const image of images) {
-      const source = path.join(category.source, image);
-      const cleanName = image.toLowerCase().replace(/[^a-z0-9.]+/g, "-");
-      const target = path.join(imageOut, cleanName);
-      await fs.copyFile(source, target);
-      const stem = path.basename(image, path.extname(image)).toLowerCase().replace(/[^a-z0-9]/g, "");
-      for (const article of allArticles.filter((item) => item.kind === kind)) {
-        if (article.slug.includes(stem) || stem.includes(article.slug.replace(/^oracle/, ""))) {
-          article.image = `/assets/img/${cleanName}`;
-        }
+async function assignImages(allArticles) {
+  for (const { kind, file } of contentSnapshot.images ?? []) {
+    const imagePath = path.join(root, "assets", "img", file);
+    try {
+      await fs.access(imagePath);
+    } catch {
+      throw new Error(`Snapshot image is missing from Web2: ${file}`);
+    }
+    const stem = path.basename(file, path.extname(file)).toLowerCase().replace(/[^a-z0-9]/g, "");
+    for (const article of allArticles.filter((item) => item.kind === kind)) {
+      if (article.slug.includes(stem) || stem.includes(article.slug.replace(/^oracle/, ""))) {
+        article.image = `/assets/img/${file}`;
       }
     }
   }
@@ -595,26 +620,24 @@ async function copyImages(allArticles) {
 
 async function readArticles() {
   const articles = [];
-  for (const [kind, category] of Object.entries(categories)) {
-    const files = (await fs.readdir(category.source)).filter((file) => file.toLowerCase().endsWith(".txt"));
-    for (const file of files) {
-      const fullPath = path.join(category.source, file);
-      const text = await fs.readFile(fullPath, "utf8");
-      articles.push(parseTextArticle(fullPath, kind, text));
+  for (const kind of Object.keys(categories)) {
+    for (const source of contentSnapshot.categories?.[kind] ?? []) {
+      const article = parseTextArticle(source.file, kind, source.text);
+      article.canon = contentSnapshot.wiki_canon?.[article.id] ?? null;
+      articles.push(article);
     }
   }
-  await copyImages(articles);
+  const duplicateIds = articles.map((article) => article.id).filter((id, index, ids) => ids.indexOf(id) !== index);
+  if (duplicateIds.length) throw new Error(`Duplicate article IDs in snapshot: ${[...new Set(duplicateIds)].join(", ")}`);
+  const registeredIds = new Set(contentSnapshot.registered_ids ?? []);
+  const invalidEntityIds = articles.filter((article) => ["char", "ae"].includes(article.kind) && !registeredIds.has(article.id)).map((article) => article.id);
+  if (invalidEntityIds.length) throw new Error(`Articles use unregistered Canon IDs: ${invalidEntityIds.join(", ")}`);
+  await assignImages(articles);
   return articles;
 }
 
 async function readChronicleSummary() {
-  try {
-    const text = await fs.readFile(chroniclePath, "utf8");
-    const match = text.match(/last_update:\s*"([^"]+)"/);
-    return match?.[1] ?? "Masterchronicle geladen. Detailabgleich offen.";
-  } catch {
-    return "Masterchronicle nicht geladen.";
-  }
+  return `${contentSnapshot.canon_cutoff}; nächster Storypart ${contentSnapshot.next_story_ref} (${contentSnapshot.next_story_status})`;
 }
 
 async function removeGeneratedRoutes() {
@@ -624,6 +647,7 @@ async function removeGeneratedRoutes() {
 }
 
 async function main() {
+  contentSnapshot = JSON.parse(await fs.readFile(contentPath, "utf8"));
   const articles = await readArticles();
   routeById = buildRouteMap(articles);
   const chronicle = await readChronicleSummary();
