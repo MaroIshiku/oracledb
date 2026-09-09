@@ -308,6 +308,41 @@ function renderNotice(article) {
           </aside>`;
 }
 
+function splitTraitLine(line, isSectionTail) {
+  const normalized = line.replace(/\s+/g, " ").trim();
+  if (!normalized.includes(":")) return null;
+  if (/[.!?]["”']?$/.test(normalized)) return null;
+
+  // The source dossiers preserve former adjacent HTML tags without separators.
+  // A lower-case/digit-to-capital transition therefore marks the next pill.
+  const separated = normalized.replace(/([^\s])((?:ORG|AE)-\d{4}\b)/g, "$1\u0000$2");
+  const tokens = separated
+    .split(/\u0000|(?<=[\p{Ll}\p{N}.)])(?=[\p{Lu}][\p{L}\p{N}])/gu)
+    .map((token) => token.trim())
+    .filter(Boolean);
+  const hasJoinedPills = tokens.length > 1;
+  const isCompactTail = isSectionTail
+    && normalized.length <= 76
+    && /^[^:]{2,40}:\s*\S/.test(normalized);
+
+  if (!hasJoinedPills && !isCompactTail) return null;
+  if (tokens.some((token) => token.length > 100)) return null;
+  return tokens;
+}
+
+function renderTraitPills(tokens, article) {
+  const pills = tokens.map((token) => {
+    const separator = token.indexOf(":");
+    if (separator < 0) {
+      return `<span class="trait-pill trait-pill-standalone">${renderInline(token, article)}</span>`;
+    }
+    const key = token.slice(0, separator).trim();
+    const value = token.slice(separator + 1).trim();
+    return `<span class="trait-pill"><span class="trait-key">${renderInline(key, article)}</span><span class="trait-value">${renderInline(value || "—", article)}</span></span>`;
+  }).join("");
+  return `<div class="trait-pills" aria-label="Aktenmerkmale">${pills}</div>`;
+}
+
 function displayedStatus(article) {
   return article.canon?.status_label || article.status;
 }
@@ -331,13 +366,17 @@ function renderWikiFooter(article) {
 function renderSection(section, index, article) {
   const specialVoss = /direktor voss/i.test(section.title);
   const body = section.body
-    .map((line) => {
+    .map((line, lineIndex) => {
       if (line.startsWith("//")) {
         return `<div class="protocol"><b>Interner Vermerk</b>${renderInline(line.replace(/^\/\/\s*/, ""), article)}</div>`;
       }
       if (/^(⚠|Warn|Sonderstatus)/i.test(line)) {
         return `<div class="note"><b>Warnhinweis</b>${renderInline(line, article)}</div>`;
       }
+      const traits = article.kind === "char"
+        ? splitTraitLine(line, lineIndex === section.body.length - 1)
+        : null;
+      if (traits) return renderTraitPills(traits, article);
       return `<p>${renderInline(line, article)}</p>`;
     })
     .join("\n");
